@@ -1,0 +1,11 @@
+Spotify Playlistmanager
+
+Funktionen:
+	- Playlists mergen
+	- Playlists sortieren
+	- Plazlists loeschen/erstellen
+	- Tracks/Playlists teilen
+	- Merge-Plan erstellen
+	- Woechentliche Ermpfehlungen auf Basis von einer Playlist
+	
+	
