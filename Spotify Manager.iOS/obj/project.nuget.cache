@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "4MM4yiWA+WtyMTve915EGt6uvsAOGYFSbet16vFoMWpwYLbQyGH18qLtUgnzkVlZdyS7K32y8r54gDPlDC+q1A==",
+  "success": true,
+  "projectFilePath": "E:\\Developing\\Xamarin\\Spotify Manager\\Spotify Manager\\Spotify Manager.iOS\\Spotify Manager.iOS.csproj",
+  "expectedPackageFiles": [
+    "D:\\Users\\elias\\.nuget\\packages\\system.numerics.vectors\\4.5.0\\system.numerics.vectors.4.5.0.nupkg.sha512",
+    "D:\\Users\\elias\\.nuget\\packages\\xamarin.essentials\\1.7.0\\xamarin.essentials.1.7.0.nupkg.sha512",
+    "D:\\Users\\elias\\.nuget\\packages\\xamarin.forms\\5.0.0.2196\\xamarin.forms.5.0.0.2196.nupkg.sha512"
+  ],
+  "logs": []
+}
