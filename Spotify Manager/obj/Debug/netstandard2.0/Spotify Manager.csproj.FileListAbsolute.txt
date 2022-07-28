@@ -13,3 +13,23 @@ E:\Developing\Xamarin\Spotify Manager\Spotify Manager\Spotify Manager\obj\Debug\
 E:\Developing\Xamarin\Spotify Manager\Spotify Manager\Spotify Manager\obj\Debug\netstandard2.0\refint\Spotify Manager.dll
 E:\Developing\Xamarin\Spotify Manager\Spotify Manager\Spotify Manager\obj\Debug\netstandard2.0\Spotify Manager.pdb
 E:\Developing\Xamarin\Spotify Manager\Spotify Manager\Spotify Manager\obj\Debug\netstandard2.0\ref\Spotify Manager.dll
+E:\Developing\Xamarin\Spotify Manager\SpotifyManager\Spotify Manager\obj\Debug\netstandard2.0\Spotify Manager.csproj.AssemblyReference.cache
+E:\Developing\Xamarin\Spotify Manager\SpotifyManager\Spotify Manager\obj\Debug\netstandard2.0\Spotify Manager.GeneratedMSBuildEditorConfig.editorconfig
+E:\Developing\Xamarin\Spotify Manager\SpotifyManager\Spotify Manager\obj\Debug\netstandard2.0\Spotify Manager.dll
+E:\Developing\Xamarin\Spotify Manager\SpotifyManager\Spotify Manager\obj\Debug\netstandard2.0\refint\Spotify Manager.dll
+E:\Developing\Xamarin\Spotify Manager\SpotifyManager\Spotify Manager\obj\Debug\netstandard2.0\Spotify Manager.pdb
+E:\Developing\Xamarin\Spotify Manager\SpotifyManager\Spotify Manager\bin\Debug\netstandard2.0\Spotify Manager.deps.json
+E:\Developing\Xamarin\Spotify Manager\SpotifyManager\Spotify Manager\bin\Debug\netstandard2.0\Spotify Manager.dll
+E:\Developing\Xamarin\Spotify Manager\SpotifyManager\Spotify Manager\bin\Debug\netstandard2.0\Spotify Manager.pdb
+E:\Developing\Xamarin\Spotify Manager\SpotifyManager\Spotify Manager\obj\Debug\netstandard2.0\App.xaml.g.cs
+E:\Developing\Xamarin\Spotify Manager\SpotifyManager\Spotify Manager\obj\Debug\netstandard2.0\Spotify Manager.AssemblyInfoInputs.cache
+E:\Developing\Xamarin\Spotify Manager\SpotifyManager\Spotify Manager\obj\Debug\netstandard2.0\Spotify Manager.AssemblyInfo.cs
+E:\Developing\Xamarin\Spotify Manager\SpotifyManager\Spotify Manager\obj\Debug\netstandard2.0\Spotify Manager.csproj.CoreCompileInputs.cache
+E:\Developing\Xamarin\Spotify Manager\SpotifyManager\Spotify Manager\obj\Debug\netstandard2.0\XamlC.stamp
+E:\Developing\Xamarin\Spotify Manager\SpotifyManager\Spotify Manager\obj\Debug\netstandard2.0\ref\Spotify Manager.dll
+E:\Developing\Xamarin\Spotify Manager\SpotifyManager\Spotify Manager\obj\Debug\netstandard2.0\Merge\FormMerge.xaml.g.cs
+E:\Developing\Xamarin\Spotify Manager\SpotifyManager\Spotify Manager\obj\Debug\netstandard2.0\Views\MainPage.xaml.g.cs
+E:\Developing\Xamarin\Spotify Manager\SpotifyManager\Spotify Manager\obj\Debug\netstandard2.0\AppShell.xaml.g.cs
+E:\Developing\Xamarin\Spotify Manager\SpotifyManager\Spotify Manager\obj\Debug\netstandard2.0\Views\SettingsPage.xaml.g.cs
+E:\Developing\Xamarin\Spotify Manager\SpotifyManager\Spotify Manager\obj\Debug\netstandard2.0\Views\NewPlaylistPage.xaml.g.cs
+E:\Developing\Xamarin\Spotify Manager\SpotifyManager\Spotify Manager\obj\Debug\netstandard2.0\Views\MergePlaylistsPage.xaml.g.cs

@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Shell xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Spotify_Manager.AppShell"
+             xmlns:local="clr-namespace:Spotify_Manager"
+             Title="SpotifyManager"
+       BackgroundColor="#191414">
+
+    <Shell.FlyoutHeaderTemplate>
+        <DataTemplate>
+            <StackLayout BackgroundColor="#191414" Padding="20">
+                <Label Text="Spotify Manager" FontSize="Large" TextColor="White"/>
+                <Label Text="Get your playlists organized easily" TextColor="White"/>
+            </StackLayout>
+        </DataTemplate>
+    </Shell.FlyoutHeaderTemplate>
+    <ShellContent Title="Startseite" Route="MainPage" ContentTemplate="{DataTemplate local:MainPage}"/>
+    <ShellContent Title="Einstellungen" Route="SettingsPage" ContentTemplate="{DataTemplate local:SettingsPage}"/>
+    <ShellContent Title="Playlists zusammenführen" Route="MergePlaylistsPage" ContentTemplate="{DataTemplate local:MergePlaylistsPage}"/>
+
+</Shell>

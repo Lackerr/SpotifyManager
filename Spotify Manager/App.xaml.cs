@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Spotify_Manager.Services;
+using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -10,7 +11,8 @@ namespace Spotify_Manager
         {
             InitializeComponent();
 
-            MainPage = new MainPage();
+            DependencyService.Register<SpotifyDataService>();
+            MainPage = new AppShell();
         }
 
         protected override void OnStart()

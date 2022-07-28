@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Spotify Manager.Android", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Spotify Manager.iOS", "Spotify Manager.iOS\Spotify Manager.iOS.csproj", "{97EF2F30-A936-4FDB-9598-D18538D7AB1A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Spotify Manager", "Spotify Manager\Spotify Manager.csproj", "{1557C522-6EB0-453D-B5FA-E6F4051E111A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Spotify Manager", "Spotify Manager\Spotify Manager.csproj", "{1557C522-6EB0-453D-B5FA-E6F4051E111A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

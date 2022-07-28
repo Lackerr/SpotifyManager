@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Spotify_Manager.NewPlaylistPage"
+             BackgroundColor="#191414">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout>
+                <Grid>
+                    <StackLayout >
+                        <StackLayout.Padding>
+                            <OnPlatform x:TypeArguments="Thickness">
+                                <On Platform="iOS">20,40,20,20</On>
+                                <On Platform="Android">20</On>
+                            </OnPlatform>
+                        </StackLayout.Padding>
+                        <Label FontSize="Caption" Text="Neue Playlist" TextColor="White"></Label>
+                        <Label Text="Name" TextColor="White"/>
+                        <Entry Text="{Binding Name, Mode=TwoWay}" TextColor="White" PlaceholderColor="White"/>
+
+                    </StackLayout>
+                </Grid>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>
