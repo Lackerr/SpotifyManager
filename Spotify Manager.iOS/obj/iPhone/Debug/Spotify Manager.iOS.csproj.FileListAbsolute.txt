@@ -101,3 +101,7 @@ E:\Developing\Xamarin\Spotify Manager\SpotifyManager\Spotify Manager.iOS\bin\iPh
 E:\Developing\Xamarin\Spotify Manager\SpotifyManager\Spotify Manager.iOS\bin\iPhone\Debug\SpotifyAPI.Web.dll
 E:\Developing\Xamarin\Spotify Manager\SpotifyManager\Spotify Manager.iOS\bin\iPhone\Debug\SpotifyAPI.Web.Auth.dll
 E:\Developing\Xamarin\Spotify Manager\SpotifyManager\Spotify Manager.iOS\bin\iPhone\Debug\Swan.Lite.dll
+E:\Developing\Xamarin\Spotify Manager\SpotifyManager\Spotify Manager.iOS\bin\iPhone\Debug\RestSharp.dll
+E:\Developing\Xamarin\Spotify Manager\SpotifyManager\Spotify Manager.iOS\bin\iPhone\Debug\Spotify Manager.iOS.exe.config
+E:\Developing\Xamarin\Spotify Manager\SpotifyManager\Spotify Manager.iOS\obj\iPhone\Debug\Spotify Manager.iOS.csproj.SuggestedBindingRedirects.cache
+E:\Developing\Xamarin\Spotify Manager\SpotifyManager\Spotify Manager.iOS\obj\iPhone\Debug\Spotify Manager.iOS.exe.config

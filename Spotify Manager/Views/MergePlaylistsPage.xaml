@@ -5,22 +5,55 @@
              xmlns:viewModels="clr-namespace:Spotify_Manager.ViewModels"
              xmlns:models="clr-namespace:Spotify_Manager.Models"
              x:DataType="viewModels:MergePlaylistsViewModel"
-             Title="{Binding Title}">
+             Title="{Binding Title}"
+             BackgroundColor="#191414">
     <ContentPage.Content>
+
         <StackLayout>
-            <Label Text="Playlists mergen"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-            <Label Text="Quell-Playlists:"></Label>
-            <CollectionView ItemsSource="{Binding Playlists}"  SelectionMode="Multiple">
-                <CollectionView.ItemTemplate>
-                    <DataTemplate x:DataType="models:Playlist">
-                        <StackLayout Padding="10">
-                            <Label Text="{Binding Name}"></Label>
-                        </StackLayout>
-                    </DataTemplate>
+
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Quell-Playlists: " HorizontalOptions="Start"></Label>
+                <Label Text="{Binding SelectedPlaylists.Count, Mode=TwoWay}" HorizontalOptions="Start"></Label>
+                <Label Text=" von " HorizontalOptions="Start"></Label>
+                <Label Text="{Binding Playlists.Count, Mode=TwoWay}" HorizontalOptions="Start"></Label>
+
+            </StackLayout>
+            <StackLayout HeightRequest="1"  BackgroundColor="#1DB954" />
+            <RefreshView Command="{Binding LoadPlaylistsCommand}" IsRefreshing="{Binding IsBusy}">
+                <CollectionView x:Name="cw" ItemsSource="{Binding Playlists}" SelectedItems="{Binding SelectedPlaylists, Mode=TwoWay}"  SelectionMode="Multiple" BackgroundColor="#191414" VerticalScrollBarVisibility="Always">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate x:DataType="models:Playlist">
+                            <StackLayout Padding="10">
+                                <VisualStateManager.VisualStateGroups>
+                                    <VisualStateGroup Name="CommonStates">
+                                        <VisualState Name="Selected">
+                                            <VisualState.Setters>
+                                                <Setter Property="BackgroundColor" Value="#1DB954"/>
+                                            </VisualState.Setters>
+                                        </VisualState>
+                                        <VisualState Name="Normal">
+                                            <VisualState.Setters>
+                                                <Setter Property="BackgroundColor" Value="#191414"/>
+                                            </VisualState.Setters>
+                                        </VisualState>
+                                    </VisualStateGroup>
+                                </VisualStateManager.VisualStateGroups>
+                                <Label Text="{Binding name}" TextColor="White"></Label>
+                            </StackLayout>
+                        </DataTemplate>
                     </CollectionView.ItemTemplate>
-            </CollectionView>
+                </CollectionView>
+            </RefreshView>
+            <StackLayout HeightRequest="1" BackgroundColor="#1DB954"/>
+            <StackLayout Padding="10" Orientation="Horizontal">
+
+
+                <Button Text="Alles auswählen" BackgroundColor="#1DB954" TextColor="#191414" CornerRadius="20"   HorizontalOptions="FillAndExpand" Command="{Binding SelectAllCommand}"></Button>
+
+                <Button  Text="Weiter" TextColor="#191414" BackgroundColor="#1DB954" CornerRadius="20"  HorizontalOptions="FillAndExpand"  Command="{Binding ContinueCommand}"></Button>
+
+
+            </StackLayout>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

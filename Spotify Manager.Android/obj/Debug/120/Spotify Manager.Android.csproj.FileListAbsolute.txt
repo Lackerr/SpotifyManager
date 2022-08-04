@@ -1317,3 +1317,4 @@ E:\Developing\Xamarin\Spotify Manager\SpotifyManager\Spotify Manager.Android\obj
 E:\Developing\Xamarin\Spotify Manager\SpotifyManager\Spotify Manager.Android\obj\Debug\120\android\assets\SpotifyAPI.Web.Auth.dll
 E:\Developing\Xamarin\Spotify Manager\SpotifyManager\Spotify Manager.Android\obj\Debug\120\android\assets\SpotifyAPI.Web.dll
 E:\Developing\Xamarin\Spotify Manager\SpotifyManager\Spotify Manager.Android\obj\Debug\120\android\assets\Swan.Lite.dll
+E:\Developing\Xamarin\Spotify Manager\SpotifyManager\Spotify Manager.Android\obj\Debug\120\android\assets\RestSharp.dll

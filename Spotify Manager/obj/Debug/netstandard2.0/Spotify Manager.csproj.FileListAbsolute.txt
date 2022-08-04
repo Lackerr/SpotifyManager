@@ -33,3 +33,4 @@ E:\Developing\Xamarin\Spotify Manager\SpotifyManager\Spotify Manager\obj\Debug\n
 E:\Developing\Xamarin\Spotify Manager\SpotifyManager\Spotify Manager\obj\Debug\netstandard2.0\Views\SettingsPage.xaml.g.cs
 E:\Developing\Xamarin\Spotify Manager\SpotifyManager\Spotify Manager\obj\Debug\netstandard2.0\Views\NewPlaylistPage.xaml.g.cs
 E:\Developing\Xamarin\Spotify Manager\SpotifyManager\Spotify Manager\obj\Debug\netstandard2.0\Views\MergePlaylistsPage.xaml.g.cs
+E:\Developing\Xamarin\Spotify Manager\SpotifyManager\Spotify Manager\obj\Debug\netstandard2.0\Views\SelectTargetPlaylistPage.xaml.g.cs

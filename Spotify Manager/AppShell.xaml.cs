@@ -16,7 +16,8 @@ namespace Spotify_Manager
         public AppShell()
         {
             InitializeComponent();
-            DependencyService.Register<SpotifyDataService>();
+
+                                         
         }
     }
 }

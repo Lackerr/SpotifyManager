@@ -6,10 +6,19 @@ namespace Spotify_Manager.Models
 {
     public interface IPlaylist
     {
-        string Name { get; set; }
-        string Description { get; set; }
-        string Id { get; set; }
-        List<ITrack> Tracks { get; set; }
+        bool collaborative { get; set; }
+        string description { get; set; }
+        SpotifyUrl external_urls { get; set; }
+        IEnumerable<object> followers { get; set; }
+        string href { get; set; }
+
+        string id { get; set; }
+        IEnumerable<object> images { get; set; }
+        string name { get; set; }
+        bool is_public {get;set;}
+        List<PlaylistTracks> items{ get; set; }
+        string Type { get; set; }
+        string uri { get; set; }
 
 
     }

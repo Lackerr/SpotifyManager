@@ -9,10 +9,10 @@ namespace Spotify_Manager
     {
         public App()
         {
+            var shell = Startup.ServiceProvider.GetService<AppShell>();
             InitializeComponent();
-
-            DependencyService.Register<SpotifyDataService>();
-            MainPage = new AppShell();
+            MainPage = shell;
+            
         }
 
         protected override void OnStart()

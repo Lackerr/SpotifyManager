@@ -25,5 +25,6 @@ namespace Spotify_Manager
             base.OnAppearing();
             await _viewModel.Initialize();
         }
+
     }
 }

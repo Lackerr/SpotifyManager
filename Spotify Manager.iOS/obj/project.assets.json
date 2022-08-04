@@ -431,6 +431,18 @@
           "lib/netstandard2.0/Newtonsoft.Json.dll": {}
         }
       },
+      "RestSharp/108.0.1": {
+        "type": "package",
+        "dependencies": {
+          "System.Text.Json": "5.0.0"
+        },
+        "compile": {
+          "lib/netstandard2.0/RestSharp.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/RestSharp.dll": {}
+        }
+      },
       "SpotifyAPI.Web/6.2.2": {
         "type": "package",
         "dependencies": {
@@ -736,6 +748,8 @@
           "Microsoft.Extensions.DependencyInjection": "6.0.0",
           "Microsoft.Extensions.FileProviders.Embedded": "6.0.7",
           "Microsoft.Extensions.Hosting": "6.0.1",
+          "Newtonsoft.Json": "13.0.1",
+          "RestSharp": "108.0.1",
           "SpotifyAPI.Web": "6.2.2",
           "SpotifyAPI.Web.Auth": "6.2.2",
           "Xamarin.Essentials": "1.7.3",
@@ -1179,6 +1193,18 @@
           "lib/netstandard2.0/Newtonsoft.Json.dll": {}
         }
       },
+      "RestSharp/108.0.1": {
+        "type": "package",
+        "dependencies": {
+          "System.Text.Json": "5.0.0"
+        },
+        "compile": {
+          "lib/netstandard2.0/RestSharp.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/RestSharp.dll": {}
+        }
+      },
       "SpotifyAPI.Web/6.2.2": {
         "type": "package",
         "dependencies": {
@@ -1478,6 +1504,8 @@
           "Microsoft.Extensions.DependencyInjection": "6.0.0",
           "Microsoft.Extensions.FileProviders.Embedded": "6.0.7",
           "Microsoft.Extensions.Hosting": "6.0.1",
+          "Newtonsoft.Json": "13.0.1",
+          "RestSharp": "108.0.1",
           "SpotifyAPI.Web": "6.2.2",
           "SpotifyAPI.Web.Auth": "6.2.2",
           "Xamarin.Essentials": "1.7.3",
@@ -1921,6 +1949,18 @@
           "lib/netstandard2.0/Newtonsoft.Json.dll": {}
         }
       },
+      "RestSharp/108.0.1": {
+        "type": "package",
+        "dependencies": {
+          "System.Text.Json": "5.0.0"
+        },
+        "compile": {
+          "lib/netstandard2.0/RestSharp.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/RestSharp.dll": {}
+        }
+      },
       "SpotifyAPI.Web/6.2.2": {
         "type": "package",
         "dependencies": {
@@ -2220,6 +2260,8 @@
           "Microsoft.Extensions.DependencyInjection": "6.0.0",
           "Microsoft.Extensions.FileProviders.Embedded": "6.0.7",
           "Microsoft.Extensions.Hosting": "6.0.1",
+          "Newtonsoft.Json": "13.0.1",
+          "RestSharp": "108.0.1",
           "SpotifyAPI.Web": "6.2.2",
           "SpotifyAPI.Web.Auth": "6.2.2",
           "Xamarin.Essentials": "1.7.3",
@@ -2663,6 +2705,18 @@
           "lib/netstandard2.0/Newtonsoft.Json.dll": {}
         }
       },
+      "RestSharp/108.0.1": {
+        "type": "package",
+        "dependencies": {
+          "System.Text.Json": "5.0.0"
+        },
+        "compile": {
+          "lib/netstandard2.0/RestSharp.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/RestSharp.dll": {}
+        }
+      },
       "SpotifyAPI.Web/6.2.2": {
         "type": "package",
         "dependencies": {
@@ -2962,6 +3016,8 @@
           "Microsoft.Extensions.DependencyInjection": "6.0.0",
           "Microsoft.Extensions.FileProviders.Embedded": "6.0.7",
           "Microsoft.Extensions.Hosting": "6.0.1",
+          "Newtonsoft.Json": "13.0.1",
+          "RestSharp": "108.0.1",
           "SpotifyAPI.Web": "6.2.2",
           "SpotifyAPI.Web.Auth": "6.2.2",
           "Xamarin.Essentials": "1.7.3",
@@ -3625,6 +3681,24 @@
         "newtonsoft.json.13.0.1.nupkg.sha512",
         "newtonsoft.json.nuspec",
         "packageIcon.png"
+      ]
+    },
+    "RestSharp/108.0.1": {
+      "sha512": "XKwuwWq7A4dxZ8l9QkS2+ePLJ9ImmLaJSeFO6H2kpII4Us4n1NRs4w3c//8H2BYpL1XqBE8nmsd9aNCVBwXmOA==",
+      "type": "package",
+      "path": "restsharp/108.0.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net5.0/RestSharp.dll",
+        "lib/net5.0/RestSharp.xml",
+        "lib/net6.0/RestSharp.dll",
+        "lib/net6.0/RestSharp.xml",
+        "lib/netstandard2.0/RestSharp.dll",
+        "lib/netstandard2.0/RestSharp.xml",
+        "restsharp.108.0.1.nupkg.sha512",
+        "restsharp.nuspec",
+        "restsharp.png"
       ]
     },
     "SpotifyAPI.Web/6.2.2": {

@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "1h8M/Y+Lp3nw0sCnwKRw3obNwzdZb8cPeHjdG2kF1A0Kj+pvcm9hgoI5enoWcpC1JDkhA1kSX3MCkwHVYm1/UA==",
+  "dgSpecHash": "fyfJ53fgXMe0pdcTQuzZuNF8dwBE7s8ntkY9NPwhATwgQq14/NBAVYi+7ttT1HTvSOMqoFSZ2YEJYSYtSzmeXA==",
   "success": true,
   "projectFilePath": "E:\\Developing\\Xamarin\\Spotify Manager\\SpotifyManager\\Spotify Manager.iOS\\Spotify Manager.iOS.csproj",
   "expectedPackageFiles": [
@@ -33,6 +33,7 @@
     "D:\\Users\\elias\\.nuget\\packages\\microsoft.extensions.options.configurationextensions\\6.0.0\\microsoft.extensions.options.configurationextensions.6.0.0.nupkg.sha512",
     "D:\\Users\\elias\\.nuget\\packages\\microsoft.extensions.primitives\\6.0.0\\microsoft.extensions.primitives.6.0.0.nupkg.sha512",
     "D:\\Users\\elias\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512",
+    "D:\\Users\\elias\\.nuget\\packages\\restsharp\\108.0.1\\restsharp.108.0.1.nupkg.sha512",
     "D:\\Users\\elias\\.nuget\\packages\\spotifyapi.web\\6.2.2\\spotifyapi.web.6.2.2.nupkg.sha512",
     "D:\\Users\\elias\\.nuget\\packages\\spotifyapi.web.auth\\6.2.2\\spotifyapi.web.auth.6.2.2.nupkg.sha512",
     "D:\\Users\\elias\\.nuget\\packages\\system.buffers\\4.5.1\\system.buffers.4.5.1.nupkg.sha512",
