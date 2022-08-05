@@ -1,4 +1,6 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
+using Newtonsoft.Json;
+using Spotify_Manager.DataStorage;
 using Spotify_Manager.Models;
 using Spotify_Manager.Secrets;
 using Spotify_Manager.Services;
@@ -34,9 +36,9 @@ namespace Spotify_Manager.ViewModels
             SelectedPlaylists = new ObservableCollection<object>();
             _selectedPlaylists = new ObservableCollection<object>();
 
-            ContinueCommand = new Command(async () => await ExecuteContinue());
+            ContinueCommand = new Command(() =>  ExecuteContinue());
             LoadPlaylistsCommand = new Command(async () => await ExecuteLoadPlaylistsCommand());
-            SelectAllCommand = new Command(() =>  ExecuteSelectAllCommand());
+            SelectAllCommand = new Command(() => ExecuteSelectAllCommand());
 
             _spotifyDataService = Startup.ServiceProvider.GetService<ISpotifyDataService>();
 
@@ -52,14 +54,14 @@ namespace Spotify_Manager.ViewModels
             {
                 SelectedPlaylists.Add(item);
             }
-            
+
         }
 
         private async Task ExecuteLoadPlaylistsCommand()
         {
             IsBusy = true;
             try
-            {   
+            {
                 SelectedPlaylists.Clear();
                 Playlists.Clear();
                 var playlists = await _spotifyDataService.GetPlaylistsAsync(AppSecret.UserId);
@@ -74,14 +76,21 @@ namespace Spotify_Manager.ViewModels
             }
         }
 
-        private async Task ExecuteContinue()
+        private  void ExecuteContinue()
         {
-            List<object> list = new List<object>();
+            IUserSelection userSelection = Startup.ServiceProvider.GetService<IUserSelection>();
+            ObservableCollection<IPlaylist> source = new ObservableCollection<IPlaylist>(userSelection.SourcePlaylists);
+
+            source.Clear();
+
             foreach (var item in SelectedPlaylists)
             {
-                list.Add(item);
+                source.Add(item as IPlaylist);
             }
+            userSelection.SourcePlaylists = source;
+            //string jsonStr = JsonConvert.SerializeObject(list);
 
+             Shell.Current.GoToAsync(nameof(SelectTargetPlaylistPage));
         }
 
         public ObservableCollection<object> SelectedPlaylists
@@ -95,7 +104,7 @@ namespace Spotify_Manager.ViewModels
 
         }
 
-        
+
 
         public override async Task Initialize()
         {

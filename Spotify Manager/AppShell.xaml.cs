@@ -16,7 +16,7 @@ namespace Spotify_Manager
         public AppShell()
         {
             InitializeComponent();
-
+            Routing.RegisterRoute(nameof(SelectTargetPlaylistPage), typeof(SelectTargetPlaylistPage));
                                          
         }
     }
