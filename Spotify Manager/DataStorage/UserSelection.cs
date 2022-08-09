@@ -1,4 +1,5 @@
-﻿using Spotify_Manager.Models;
+﻿using Spotify_Manager.Models.SpotifyStructure;
+using SpotifyAPI.Web;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -8,12 +9,12 @@ namespace Spotify_Manager.DataStorage
 {
     public class UserSelection : IUserSelection
     {
-        public IEnumerable<IPlaylist> SourcePlaylists { get; set; }
+        public IEnumerable<SimplePlaylist> SourcePlaylists { get; set; }
         public IPlaylist DestinationPlaylist { get; set; }
 
         public UserSelection()
         {
-            SourcePlaylists = new ObservableCollection<IPlaylist>();
+            SourcePlaylists = new ObservableCollection<SimplePlaylist>();
         }
     }
 }

@@ -3,7 +3,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Spotify_Manager.MergePlaylistsPage"
              xmlns:viewModels="clr-namespace:Spotify_Manager.ViewModels"
-             xmlns:models="clr-namespace:Spotify_Manager.Models"
+             xmlns:models="clr-namespace:SpotifyAPI.Web;assembly=SpotifyAPI.Web"
+             xmlns:spotifyModels="clr-namespace:Spotify_Manager.Models.SpotifyStructure"
              x:DataType="viewModels:MergePlaylistsViewModel"
              Title="{Binding Title}"
              BackgroundColor="#191414">
@@ -12,33 +13,37 @@
         <StackLayout>
 
             <StackLayout Orientation="Horizontal">
-                <Label Text="Quell-Playlists: " HorizontalOptions="Start"></Label>
-                <Label Text="{Binding SelectedPlaylists.Count, Mode=TwoWay}" HorizontalOptions="Start"></Label>
-                <Label Text=" von " HorizontalOptions="Start"></Label>
-                <Label Text="{Binding Playlists.Count, Mode=TwoWay}" HorizontalOptions="Start"></Label>
+                <Label Text="Quell-Playlists: " HorizontalOptions="Start" TextColor="White" VerticalOptions="Center"></Label>
+                <Label Text="{Binding SelectedPlaylists.Count, Mode=TwoWay}" HorizontalOptions="Start"  TextColor="White" VerticalOptions="Center"></Label>
+                <Label Text=" von " HorizontalOptions="Start"  TextColor="White" VerticalOptions="Center"></Label>
+                <Label Text="{Binding Playlists.Count, Mode=TwoWay}" HorizontalOptions="Start"  TextColor="White" VerticalOptions="Center"></Label>
 
             </StackLayout>
             <StackLayout HeightRequest="1"  BackgroundColor="#1DB954" />
             <RefreshView Command="{Binding LoadPlaylistsCommand}" IsRefreshing="{Binding IsBusy}">
-                <CollectionView x:Name="cw" ItemsSource="{Binding Playlists}" SelectedItems="{Binding SelectedPlaylists, Mode=TwoWay}"  SelectionMode="Multiple" BackgroundColor="#191414" VerticalScrollBarVisibility="Always">
+                <CollectionView  x:Name="cw" ItemsSource="{Binding Playlists}" SelectedItems="{Binding SelectedPlaylists, Mode=TwoWay}"  SelectionMode="Multiple" BackgroundColor="#191414" VerticalScrollBarVisibility="Always" SelectionChangedCommand="{Binding SelectionChangedCommand}">
                     <CollectionView.ItemTemplate>
-                        <DataTemplate x:DataType="models:Playlist">
+                        <DataTemplate x:DataType="models:SimplePlaylist">
                             <StackLayout Padding="10">
                                 <VisualStateManager.VisualStateGroups>
                                     <VisualStateGroup Name="CommonStates">
                                         <VisualState Name="Selected">
                                             <VisualState.Setters>
-                                                <Setter Property="BackgroundColor" Value="#1DB954"/>
+                                                <Setter Property="BackgroundColor" Value="#333333"/>
+                                                <Setter TargetName="labelSelected" Property="Label.TextColor" Value="#1DB954"/>
                                             </VisualState.Setters>
                                         </VisualState>
                                         <VisualState Name="Normal">
                                             <VisualState.Setters>
                                                 <Setter Property="BackgroundColor" Value="#191414"/>
+                                                <Setter TargetName="labelSelected" Property="Label.TextColor" Value="White"/>
                                             </VisualState.Setters>
                                         </VisualState>
                                     </VisualStateGroup>
                                 </VisualStateManager.VisualStateGroups>
-                                <Label Text="{Binding name}" TextColor="White"></Label>
+                                <Label x:Name="labelSelected" Text="{Binding Name}" TextColor="White">
+
+                                </Label>
                             </StackLayout>
                         </DataTemplate>
                     </CollectionView.ItemTemplate>
@@ -50,7 +55,7 @@
 
                 <Button Text="Alles auswählen" BackgroundColor="#1DB954" TextColor="#191414" CornerRadius="20"   HorizontalOptions="FillAndExpand" Command="{Binding SelectAllCommand}"></Button>
 
-                <Button  Text="Weiter" TextColor="#191414" BackgroundColor="#1DB954" CornerRadius="20"  HorizontalOptions="FillAndExpand"  Command="{Binding ContinueCommand}"></Button>
+                <Button  Text="Weiter" TextColor="#191414" BackgroundColor="#1DB954" CornerRadius="20"  HorizontalOptions="FillAndExpand"  Command="{Binding ContinueCommand}" IsEnabled="{Binding IsSelected, Mode=TwoWay}"></Button>
 
 
             </StackLayout>

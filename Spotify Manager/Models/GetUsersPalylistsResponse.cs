@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Spotify_Manager.Models.SpotifyStructure;
+using System;
 using System.Collections.Generic;
 using System.Text;
 

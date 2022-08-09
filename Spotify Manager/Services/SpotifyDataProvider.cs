@@ -1,6 +1,7 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using Newtonsoft.Json;
 using Spotify_Manager.Models;
+using Spotify_Manager.Models.SpotifyStructure;
 using SpotifyAPI.Web;
 using System;
 using System.Collections.Generic;
@@ -24,10 +25,10 @@ namespace Spotify_Manager.Services
             throw new NotImplementedException();
         }
 
-        public async Task<IEnumerable<IPlaylist>> GetUsersPlaylistsAsync(string userId, int limit = 50, int offset = 0)
+        public async Task<IEnumerable<SimplePlaylist>> GetUsersPlaylistsAsync(string userId)
         {
-            limit = 50;
-
+            int limit = 50;
+            int offset = 0;
             string result = string.Empty;
             List<IPlaylist> playlists = new List<IPlaylist>();
 
@@ -54,7 +55,8 @@ namespace Spotify_Manager.Services
 
 
 
-                return playlists;
+                //return playlists;
+                return null;
             }
             catch (Exception x)
             {

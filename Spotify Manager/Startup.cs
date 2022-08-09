@@ -9,6 +9,7 @@ using Microsoft.Extensions.FileProviders;
 using Spotify_Manager.Services;
 using Spotify_Manager.Models;
 using Spotify_Manager.DataStorage;
+using Spotify_Manager.Models.SpotifyStructure;
 
 namespace Spotify_Manager
 {
@@ -46,8 +47,9 @@ namespace Spotify_Manager
                 //services.AddSingleton<IDataService, DataDataService>();
             }
             services.AddTransient<AppShell>();
+            services.AddSingleton<ISpotifyDataStorage, SpotifyDataStorage>();
             services.AddSingleton<ITokenProvider, TokenProviderDemo>();
-            services.AddSingleton<ISpotifyDataProvider, SpotifyDataProvider>();
+            services.AddSingleton<ISpotifyDataProvider, SpotifyApiNetDataProvider>();
             services.AddSingleton<ISpotifyDataService, SpotifyDataService>();
             services.AddSingleton<IUserSelection, UserSelection>();
             services.AddTransient<Token>();

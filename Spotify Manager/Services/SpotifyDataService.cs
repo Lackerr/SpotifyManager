@@ -1,7 +1,9 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
-using Spotify_Manager.Models;
+using Spotify_Manager.Models.SpotifyStructure;
+using SpotifyAPI.Web;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Threading.Tasks;
 
 namespace Spotify_Manager.Services
@@ -25,7 +27,7 @@ namespace Spotify_Manager.Services
             throw new NotImplementedException();
         }
 
-        public async Task<IEnumerable<IPlaylist>> GetPlaylistsAsync(string userId)
+        public async Task<IEnumerable<SimplePlaylist>> GetPlaylistsAsync(string userId)
         {
             var playlists = await _provider.GetUsersPlaylistsAsync(userId);
             return playlists;

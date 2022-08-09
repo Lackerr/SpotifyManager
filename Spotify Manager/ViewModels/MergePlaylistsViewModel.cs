@@ -1,13 +1,8 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
-using Newtonsoft.Json;
 using Spotify_Manager.DataStorage;
-using Spotify_Manager.Models;
-using Spotify_Manager.Secrets;
-using Spotify_Manager.Services;
+using SpotifyAPI.Web;
 using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 
@@ -15,13 +10,15 @@ namespace Spotify_Manager.ViewModels
 {
     internal class MergePlaylistsViewModel : BaseViewModel
     {
-        ISpotifyDataService _spotifyDataService;
-        public ObservableCollection<Playlist> Playlists { get; }
+        private readonly ISpotifyDataStorage _spotifyDataStorage;
+        public ObservableCollection<SimplePlaylist> Playlists { get; }
 
         private ObservableCollection<object> _selectedPlaylists;
+        private bool _isSelected = false;
 
 
         public Command LoadPlaylistsCommand { get; }
+        public Command SelectionChangedCommand { get; }
         public Command ContinueCommand { get; }
         public Command SelectAllCommand { get; }
 
@@ -31,43 +28,53 @@ namespace Spotify_Manager.ViewModels
         {
             IsBusy = true;
             Title = "Playlists zusammenführen";
-            Playlists = new ObservableCollection<Playlist>();
+
+            _spotifyDataStorage = Startup.ServiceProvider.GetService<ISpotifyDataStorage>();
+            Playlists = _spotifyDataStorage.UsersPlaylists;
 
             SelectedPlaylists = new ObservableCollection<object>();
             _selectedPlaylists = new ObservableCollection<object>();
 
-            ContinueCommand = new Command(() =>  ExecuteContinue());
             LoadPlaylistsCommand = new Command(async () => await ExecuteLoadPlaylistsCommand());
+            SelectionChangedCommand = new Command(() => ExecuteSelectionChangedCommand());
+            ContinueCommand = new Command(() => ExecuteContinue());
             SelectAllCommand = new Command(() => ExecuteSelectAllCommand());
 
-            _spotifyDataService = Startup.ServiceProvider.GetService<ISpotifyDataService>();
 
             OnPropertyChanged();
             IsBusy = false;
         }
 
+        private void ExecuteSelectionChangedCommand()
+        {
+            IsSelected = false;
+            if (SelectedPlaylists.Count > 0)
+            {
+                IsSelected = true;
+            }
+            OnPropertyChanged();
+        }
+
         private void ExecuteSelectAllCommand()
         {
-            IsBusy = true;
-            SelectedPlaylists.Clear();
+            _selectedPlaylists.Clear();
             foreach (var item in Playlists)
             {
-                SelectedPlaylists.Add(item);
+                _selectedPlaylists.Add(item);
             }
-
         }
 
         private async Task ExecuteLoadPlaylistsCommand()
         {
             IsBusy = true;
+            SelectedPlaylists.Clear();
+            Playlists.Clear();
             try
             {
-                SelectedPlaylists.Clear();
-                Playlists.Clear();
-                var playlists = await _spotifyDataService.GetPlaylistsAsync(AppSecret.UserId);
+                var playlists = await _spotifyDataStorage.RefreshUsersPlaylists();
                 foreach (var playlist in playlists)
                 {
-                    Playlists.Add(playlist as Playlist);
+                    Playlists.Add(playlist);
                 }
             }
             finally
@@ -76,21 +83,18 @@ namespace Spotify_Manager.ViewModels
             }
         }
 
-        private  void ExecuteContinue()
+        private void ExecuteContinue()
         {
             IUserSelection userSelection = Startup.ServiceProvider.GetService<IUserSelection>();
-            ObservableCollection<IPlaylist> source = new ObservableCollection<IPlaylist>(userSelection.SourcePlaylists);
-
-            source.Clear();
+            ObservableCollection<SimplePlaylist> source = new ObservableCollection<SimplePlaylist>(/*userSelection.SourcePlaylists*/);
 
             foreach (var item in SelectedPlaylists)
             {
-                source.Add(item as IPlaylist);
+                source.Add(item as SimplePlaylist);
             }
             userSelection.SourcePlaylists = source;
-            //string jsonStr = JsonConvert.SerializeObject(list);
 
-             Shell.Current.GoToAsync(nameof(SelectTargetPlaylistPage));
+            Shell.Current.GoToAsync(nameof(SelectTargetPlaylistPage));
         }
 
         public ObservableCollection<object> SelectedPlaylists
@@ -104,13 +108,22 @@ namespace Spotify_Manager.ViewModels
 
         }
 
+        public bool IsSelected
+        {
+            get => _isSelected;
+            set
+            {
+                SetProperty(ref _isSelected, value);
+                OnPropertyChanged();
+            }
+        }
 
 
         public override async Task Initialize()
         {
             _selectedPlaylists.Clear();
             await base.Initialize();
-            await ExecuteLoadPlaylistsCommand();
+
         }
     }
 }
