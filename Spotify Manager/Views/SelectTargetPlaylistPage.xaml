@@ -9,19 +9,26 @@
              
              BackgroundColor="#191414">
     <ContentPage.Content>
-        <StackLayout Padding="10">
-            <Picker x:Name="PlaylistPicker" Title="Ziel-Playlist" ItemsSource="{Binding Playlists}" ItemDisplayBinding="{Binding Name}" SelectedItem="{Binding }">
-
-            </Picker>
-            <Grid RowDefinitions="auto" ColumnDefinitions="auto,auto">
-                <CheckBox Grid.Column="0" IsChecked="{Binding IsNewPlaylist}" CheckedChanged="CheckBox_CheckedChanged"/>
-                <Label Grid.Column="1" Text="Neue Playlist" TextColor="White" VerticalOptions="Center"></Label>
-            </Grid>
-            <Entry x:Name="EntryPLaylistName" Placeholder="Name für neue Playlist" PlaceholderColor="Gray" TextColor="White" IsEnabled="false"  />
-            <StackLayout HeightRequest="1" BackgroundColor="#1DB954"/>
-            <StackLayout Padding="10" Orientation="Horizontal">
-                <Button  Text="Weiter" TextColor="#191414" BackgroundColor="#1DB954" CornerRadius="20"  HorizontalOptions="FillAndExpand"  Command="{Binding ContinueCommand}"></Button>
+        <Grid>
+            <StackLayout Padding="10" VerticalOptions="FillAndExpand">
+                <Label Text="Ziel-Playlist:" TextColor="White" FontSize="Title"/>
+                <Grid RowDefinitions="auto" ColumnDefinitions="auto,auto">
+                    <CheckBox Grid.Column="0" IsChecked="{Binding IsNewPlaylist}" CheckedChanged="CheckBox_CheckedChanged" Color="#1DB954"/>
+                    <Label Grid.Column="1" Text="Neue Playlist" TextColor="White" VerticalOptions="Center"></Label>
+                </Grid>
+                <Grid>
+                    <Picker TitleColor="#1DB954" TextColor="#1DB954" x:Name="PlaylistPicker" Title="Ziel-Playlist" ItemsSource="{Binding Playlists}" ItemDisplayBinding="{Binding Name}" SelectedItem="{Binding SelectedItem}" SelectedIndexChanged="Picker_OnSelectedIndexChanged"/>
+                    <Entry x:Name="EntryPLaylistName" Text="{Binding NewPlaylistName}" Placeholder="Name für neue Playlist" PlaceholderColor="Gray" TextColor="White" IsVisible="false" TextChanged="EntryPLaylistName_TextChanged" />
+                </Grid>
+                <StackLayout Padding="10" Orientation="Vertical" VerticalOptions="EndAndExpand">
+                    <StackLayout HeightRequest="1" BackgroundColor="#1DB954" />
+                    <Button  Text="Weiter" TextColor="#191414" BackgroundColor="#1DB954" CornerRadius="20"  HorizontalOptions="FillAndExpand" Command="{Binding ContinueCommand}" IsEnabled="{Binding IsValid}"></Button>
+                </StackLayout>
             </StackLayout>
-        </StackLayout>
+            <StackLayout BackgroundColor="#191414" Opacity="0.7" IsVisible="{Binding IsBusy}">
+                <ActivityIndicator IsRunning="{Binding IsBusy}" VerticalOptions="EndAndExpand" HorizontalOptions="CenterAndExpand" Color="#1DB954"/>
+                <Label Text="Lade..." FontSize="Title" TextColor="White" VerticalOptions="StartAndExpand" HorizontalOptions="CenterAndExpand"/>
+            </StackLayout>
+        </Grid>
     </ContentPage.Content>
 </ContentPage>

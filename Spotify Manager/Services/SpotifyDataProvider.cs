@@ -2,6 +2,7 @@
 using Newtonsoft.Json;
 using Spotify_Manager.Models;
 using Spotify_Manager.Models.SpotifyStructure;
+using Spotify_Manager.Secrets;
 using SpotifyAPI.Web;
 using System;
 using System.Collections.Generic;
@@ -25,10 +26,12 @@ namespace Spotify_Manager.Services
             throw new NotImplementedException();
         }
 
-        public async Task<IEnumerable<SimplePlaylist>> GetUsersPlaylistsAsync(string userId)
+        public async Task AddTracksAsync(IEnumerable<FullTrack> sourceTracks, string playlistId)
         {
             int limit = 50;
             int offset = 0;
+            var userId = AppSecret.UserId;
+
             string result = string.Empty;
             List<IPlaylist> playlists = new List<IPlaylist>();
 
@@ -56,12 +59,12 @@ namespace Spotify_Manager.Services
 
 
                 //return playlists;
-                return null;
+              
             }
             catch (Exception x)
             {
                 var ex = x.Message;
-                return null;
+               
             }
 
         }
@@ -72,6 +75,31 @@ namespace Spotify_Manager.Services
         }
 
         public Task<IEnumerable<ITrack>> GetTracksAsync(string playlistId)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<IEnumerable<SimplePlaylist>> GetUsersPlaylistsAsync(string userId)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<FullPlaylist> PlaylistCreate(string name)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task PlaylistDeleteDublicates(string playlistId, IEnumerable<FullTrack> tracks)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task PlaylistRemoveTracks(string playlistId, IEnumerable<string> trackUris)
+        {
+            throw new NotImplementedException();
+        }
+
+        Task<IEnumerable<FullTrack>> ISpotifyDataProvider.GetTracksAsync(string playlistId)
         {
             throw new NotImplementedException();
         }

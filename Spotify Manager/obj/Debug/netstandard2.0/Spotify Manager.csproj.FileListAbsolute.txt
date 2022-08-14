@@ -34,3 +34,6 @@ E:\Developing\Xamarin\Spotify Manager\SpotifyManager\Spotify Manager\obj\Debug\n
 E:\Developing\Xamarin\Spotify Manager\SpotifyManager\Spotify Manager\obj\Debug\netstandard2.0\Views\NewPlaylistPage.xaml.g.cs
 E:\Developing\Xamarin\Spotify Manager\SpotifyManager\Spotify Manager\obj\Debug\netstandard2.0\Views\MergePlaylistsPage.xaml.g.cs
 E:\Developing\Xamarin\Spotify Manager\SpotifyManager\Spotify Manager\obj\Debug\netstandard2.0\Views\SelectTargetPlaylistPage.xaml.g.cs
+E:\Developing\Xamarin\Spotify Manager\SpotifyManager\Spotify Manager\obj\Debug\netstandard2.0\Views\ExecuteMergingPage.xaml.g.cs
+E:\Developing\Xamarin\Spotify Manager\SpotifyManager\Spotify Manager\obj\Debug\netstandard2.0\Views\DeleteDublicatesPage.xaml.g.cs
+E:\Developing\Xamarin\Spotify Manager\SpotifyManager\Spotify Manager\obj\Debug\netstandard2.0\Views\SortPlaylistPage.xaml.g.cs

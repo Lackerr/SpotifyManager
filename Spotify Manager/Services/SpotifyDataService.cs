@@ -10,16 +10,11 @@ namespace Spotify_Manager.Services
 {
     public class SpotifyDataService : ISpotifyDataService
     {
-        List<Playlist> _playlists;
+
         ISpotifyDataProvider _provider;
         public SpotifyDataService()
         {
             _provider = Startup.ServiceProvider.GetService<ISpotifyDataProvider>();
-            //_playlists = new List<Playlist>()
-            //{
-            //    new Playlist { Id = "432424", Name = "Playlist1", Description = "Test Desc",
-            //    Tracks = new List<ITrack>(){ new Track { Name = "Track 1", Id = "1", IsLocal = false, Uri = "424243" } } }
-            //};
         }
 
         public Task<bool> AddTracksAsync(IEnumerable<ITrack> tracks, string playlistId)
@@ -41,6 +36,38 @@ namespace Spotify_Manager.Services
         public Task<IEnumerable<ITrack>> GetTracksAsync(string playlistId)
         {
             throw new NotImplementedException();
+        }
+
+        public async Task MergePlaylists(IEnumerable<SimplePlaylist> sourcePlaylists, SimplePlaylist targetPlaylist)
+        {
+            ObservableCollection<SimplePlaylist> source = sourcePlaylists as ObservableCollection<SimplePlaylist>;
+            List<FullTrack> sourceTracks = new List<FullTrack>();
+            foreach (SimplePlaylist playlist in source)
+            {
+                var tracks = await _provider.GetTracksAsync(playlist.Id);
+                foreach (var item in tracks)
+                {
+                    if (!sourceTracks.Exists(x => x.Id == item.Id))
+                        sourceTracks.Add(item);
+                }
+            }
+
+            await _provider.AddTracksAsync(sourceTracks, targetPlaylist.Id);
+        }
+
+        public async Task PlaylistDeleteDublicates(string playlistId, IEnumerable<FullTrack> tracks = null)
+        {
+            if (tracks == null)
+            {
+                tracks = await _provider.GetTracksAsync(playlistId);
+            }
+            await _provider.PlaylistDeleteDublicates(playlistId, tracks);
+        }
+
+        public async Task<FullPlaylist> PlaylistCreate(string name)
+        {
+            var playlist = await _provider.PlaylistCreate(name);
+            return playlist;
         }
     }
 }

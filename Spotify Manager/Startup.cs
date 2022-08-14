@@ -52,6 +52,7 @@ namespace Spotify_Manager
             services.AddSingleton<ISpotifyDataProvider, SpotifyApiNetDataProvider>();
             services.AddSingleton<ISpotifyDataService, SpotifyDataService>();
             services.AddSingleton<IUserSelection, UserSelection>();
+            services.AddSingleton<ISpotifyClientProvider, SpotifyClientProviderOAuth>();
             services.AddTransient<Token>();
             services.AddTransient<Playlist>();
             services.AddTransient<TrackInfromation>();

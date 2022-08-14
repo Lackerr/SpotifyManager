@@ -10,8 +10,12 @@ namespace Spotify_Manager.Services
     public interface ISpotifyDataProvider
     {
         Task<IEnumerable<SimplePlaylist>> GetUsersPlaylistsAsync(string userId);
-        Task<IEnumerable<ITrack>> GetTracksAsync(string playlistId);
+        Task<IEnumerable<FullTrack>> GetTracksAsync(string playlistId);
         Task<ITrackInfromation> GetTrackInformationAsync(string trackId);
-        Task<bool> AddTracksAsync(IEnumerable<ITrack> tracks, string playlistId);
+        Task AddTracksAsync(IEnumerable<FullTrack> tracks, string playlistId);
+        
+        Task PlaylistDeleteDublicates(string playlistId, IEnumerable<FullTrack> tracks);
+        Task PlaylistRemoveTracks(string playlistId, IEnumerable<string> trackUris);
+        Task<FullPlaylist> PlaylistCreate(string name);
     }
 }

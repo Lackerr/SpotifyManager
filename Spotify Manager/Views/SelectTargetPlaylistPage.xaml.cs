@@ -28,12 +28,29 @@ namespace Spotify_Manager
         {
             var picker = (Picker)sender;
             _viewmodel.SelectedItem = picker.SelectedItem as SimplePlaylist;
+            _viewmodel.IsValid = true;
         }
 
         private void CheckBox_CheckedChanged(object sender, CheckedChangedEventArgs e)
         {
-            PlaylistPicker.IsEnabled = !e.Value;
-            EntryPLaylistName.IsEnabled = e.Value;
+            PlaylistPicker.IsVisible = !e.Value;
+            EntryPLaylistName.IsVisible= e.Value;
+            Validate();
+
+        }
+
+        private void EntryPLaylistName_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            Validate();
+        }
+
+        private void Validate()
+        {
+            _viewmodel.IsValid = true;
+            if (((EntryPLaylistName.Text == "" ||EntryPLaylistName.Text == null)  && _viewmodel.IsNewPlaylist) || !_viewmodel.IsNewPlaylist && PlaylistPicker.SelectedItem == null)
+            {
+                _viewmodel.IsValid = false;
+            }
         }
     }
 }

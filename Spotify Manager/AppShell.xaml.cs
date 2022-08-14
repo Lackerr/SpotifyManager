@@ -1,4 +1,5 @@
 ﻿using Spotify_Manager.Services;
+using Spotify_Manager.Views;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,6 +18,10 @@ namespace Spotify_Manager
         {
             InitializeComponent();
             Routing.RegisterRoute(nameof(SelectTargetPlaylistPage), typeof(SelectTargetPlaylistPage));
+            Routing.RegisterRoute(nameof(ExecuteMergingPage), typeof(ExecuteMergingPage));
+            Routing.RegisterRoute(nameof(MainPage),typeof(MainPage));
+            Routing.RegisterRoute(nameof(SortPlaylistPage), typeof(SortPlaylistPage));
+
                                          
         }
     }

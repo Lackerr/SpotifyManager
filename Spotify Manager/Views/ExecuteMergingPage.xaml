@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Spotify_Manager.Views.ExecuteMergingPage"
+             xmlns:viewModels="clr-namespace:Spotify_Manager.ViewModels"
+             x:DataType="viewModels:ExecuteMergingViewModel"
+             xmlns:models="clr-namespace:SpotifyAPI.Web;assembly=SpotifyAPI.Web"
+             BackgroundColor="#191414"
+             Title="{Binding Title}">
+
+    <ContentPage.Content>
+        <Grid>
+            <StackLayout Padding="10">
+                <Label Text="Ziel-Playlist" FontSize="Subtitle"  TextColor="White"/>
+                <Label Text="{Binding TargetPlaylistName}" TextColor="#1DB954" FontSize="Subtitle" />
+                <Label Text="Quell-Playlists" FontSize="Subtitle" TextColor="White"/>
+                <CollectionView x:Name="cwSource" ItemsSource="{Binding SourcePlaylists}"  SelectionMode="None" BackgroundColor="#191414" VerticalScrollBarVisibility="Always">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate x:DataType="models:SimplePlaylist">
+                            <StackLayout Padding="10">
+                                <Label Text="{Binding Name}" TextColor="#1DB954" FontSize="Subtitle">
+                                </Label>
+                            </StackLayout>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+
+
+                <StackLayout HeightRequest="1" BackgroundColor="#1DB954" VerticalOptions="EndAndExpand"/>
+                <StackLayout Padding="10" Orientation="Horizontal" >
+                    <Grid HorizontalOptions="FillAndExpand" Padding="10">
+                        <Button  Text="Start" IsVisible="{Binding Waiting}" Command="{Binding StartMergingCommand}" CornerRadius="20" BackgroundColor="#1DB954" TextColor="#191414" HorizontalOptions="FillAndExpand"/>
+                        <Button Text="Fertig" IsVisible="{Binding Finished}" Command="{Binding FinishedCommand}" CornerRadius="20" BackgroundColor="#1DB954" TextColor="#191414" HorizontalOptions="FillAndExpand"/>
+                    </Grid>
+                </StackLayout>
+            </StackLayout>
+            <StackLayout BackgroundColor="#191414" Opacity="0.7" IsVisible="{Binding IsBusy}">
+                <ActivityIndicator IsRunning="{Binding IsBusy}" VerticalOptions="EndAndExpand" HorizontalOptions="CenterAndExpand" Color="#1DB954"/>
+                <Label Text="Lade..." FontSize="Title" TextColor="White" VerticalOptions="StartAndExpand" HorizontalOptions="CenterAndExpand"/>
+            </StackLayout>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

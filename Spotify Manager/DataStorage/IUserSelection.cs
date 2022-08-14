@@ -9,6 +9,7 @@ namespace Spotify_Manager.DataStorage
     internal interface IUserSelection
     {
         IEnumerable<SimplePlaylist> SourcePlaylists{get;set;}
-        IPlaylist DestinationPlaylist { get;set;}
+        SimplePlaylist DestinationPlaylist { get;set;}
+        FullPlaylist NewDestinationPlaylist { get;set;}
     }
 }

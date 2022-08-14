@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Spotify_Manager.Views.SortPlaylistPage"
+             xmlns:viewModels="clr-namespace:Spotify_Manager.ViewModels"
+             xmlns:models="clr-namespace:Spotify_Manager.Models"
+             x:DataType="viewModels:SortPlaylistViewModel"
+             Title="{Binding Title}"
+             
+             BackgroundColor="#191414">
+    <ContentPage.Content>
+
+        <Grid>
+            <StackLayout Padding="10" VerticalOptions="FillAndExpand">
+
+                <Label Text="Playlist:" TextColor="White" FontSize="Title"/>
+                <Picker TitleColor="#1DB954" TextColor="#1DB954" x:Name="PlaylistPicker" Title="Ziel-Playlist" ItemsSource="{Binding Playlists}" ItemDisplayBinding="{Binding Name}" SelectedItem="{Binding SelectedPlaylist}"/>
+
+                <Label Text="Sortieren nach:" TextColor="White" FontSize="Title"/>
+                <Picker TitleColor="#1DB954" TextColor="#1DB954" x:Name="SortingPicker" Title="Sortieren nach" ItemsSource="{Binding SortingTypes}" ItemDisplayBinding="{Binding Name}" SelectedItem="{Binding SelectedPlaylist}"/>
+
+
+
+                <StackLayout Padding="10" Orientation="Vertical" VerticalOptions="EndAndExpand">
+                    <StackLayout HeightRequest="1" BackgroundColor="#1DB954" />
+                    <Button  Text="Weiter" TextColor="#191414" BackgroundColor="#1DB954" CornerRadius="20"  HorizontalOptions="FillAndExpand" Command="{Binding SortCommand}" ></Button>
+                </StackLayout>
+            </StackLayout>
+            <StackLayout BackgroundColor="#191414" Opacity="0.7" IsVisible="{Binding IsBusy}">
+                <ActivityIndicator IsRunning="{Binding IsBusy}" VerticalOptions="EndAndExpand" HorizontalOptions="CenterAndExpand" Color="#1DB954"/>
+                <Label Text="Lade..." FontSize="Title" TextColor="White" VerticalOptions="StartAndExpand" HorizontalOptions="CenterAndExpand"/>
+            </StackLayout>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

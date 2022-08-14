@@ -13,5 +13,8 @@ namespace Spotify_Manager.Services
         Task<IEnumerable<ITrack>> GetTracksAsync(string playlistId);
         Task<ITrackInfromation> GetTrackInformationAsync(string trackId);
         Task<bool> AddTracksAsync(IEnumerable<ITrack> tracks, string playlistId);
+        Task MergePlaylists(IEnumerable<SimplePlaylist> sourcePlaylists, SimplePlaylist targetPlaylist);
+        Task PlaylistDeleteDublicates(string playlistId, IEnumerable<FullTrack> tracks = null);
+        Task<FullPlaylist> PlaylistCreate(string name);
     }
 }

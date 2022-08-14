@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Spotify_Manager.Views.DeleteDublicatesPage"
+             xmlns:models="clr-namespace:SpotifyAPI.Web;assembly=SpotifyAPI.Web"
+             xmlns:viewModels="clr-namespace:Spotify_Manager.ViewModels"
+             x:DataType="viewModels:DeleteDublicatesViewModel"
+             BackgroundColor="#191414"
+             Title="{Binding Title}">
+
+    <ContentPage.Content>
+        <RefreshView Command="{Binding LoadPlaylistsCommand}">
+            <Grid>
+                <StackLayout Padding="10" VerticalOptions="FillAndExpand">
+                    <Label Text="Playlist:" TextColor="White" FontSize="Title"/>
+                    <Picker TitleColor="#1DB954" TextColor="#1DB954" x:Name="PlaylistPicker" Title="Playlist" ItemsSource="{Binding Playlists}" ItemDisplayBinding="{Binding Name}" SelectedItem="{Binding SelectedPlaylist}"/>
+                    <StackLayout Padding="10" VerticalOptions="EndAndExpand">
+                        <StackLayout HeightRequest="1" BackgroundColor="#1DB954" />
+                        <Button  Text="Dubletten entfernen" TextColor="#191414" BackgroundColor="#1DB954" CornerRadius="20"  HorizontalOptions="FillAndExpand" Command="{Binding DeleteCommand}"></Button>
+                    </StackLayout>
+                </StackLayout>
+                <StackLayout BackgroundColor="#191414" Opacity="0.7" IsVisible="{Binding IsBusy}">
+                    <ActivityIndicator IsRunning="{Binding IsBusy}" VerticalOptions="EndAndExpand" HorizontalOptions="CenterAndExpand" Color="#1DB954"/>
+                    <Label Text="Lade..." FontSize="Title" TextColor="White" VerticalOptions="StartAndExpand" HorizontalOptions="CenterAndExpand"/>
+                </StackLayout>
+            </Grid>
+        </RefreshView>
+    </ContentPage.Content>
+</ContentPage>

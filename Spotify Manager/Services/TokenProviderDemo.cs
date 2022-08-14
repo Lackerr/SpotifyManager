@@ -11,7 +11,10 @@ namespace Spotify_Manager.Services
 {
     internal class TokenProviderDemo : ITokenProvider
     {
-
+        public Task<SpotifyAPI.Web.SpotifyClient> CreateSpotifyClient()
+        {
+            throw new NotImplementedException();
+        }
 
         public async Task<string> GetAccessToken()
         {

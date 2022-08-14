@@ -3,16 +3,17 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Spotify_Manager.AppShell"
              xmlns:local="clr-namespace:Spotify_Manager"
+             xmlns:views="clr-namespace:Spotify_Manager.Views"
              Title="SpotifyManager"
        >
 
-  <!--<Shell.Resources>
+    <!--<Shell.Resources>
         <Style Class="FlyoutItemLabelStyle" TargetType="Label" >
             <Setter Property="TextColor" Value="White"/>
             <Setter Property="BackgroundColor" Value="#191414"/>
         </Style>
     </Shell.Resources>-->
-    
+
     <Shell.FlyoutHeaderTemplate>
         <DataTemplate>
             <StackLayout BackgroundColor="#191414" Padding="20">
@@ -23,13 +24,15 @@
     </Shell.FlyoutHeaderTemplate>
 
 
-    
-        <ShellContent Title="Startseite" Route="MainPage" ContentTemplate="{DataTemplate local:MainPage}"/>
-        <ShellContent Title="Einstellungen" Route="SettingsPage" ContentTemplate="{DataTemplate local:SettingsPage}"/>
-        <ShellContent Title="Playlists zusammenführen" Route="MergePlaylistsPage" ContentTemplate="{DataTemplate local:MergePlaylistsPage}"/>
-  
-    
- 
+
+    <ShellContent Title="Startseite" Route="MainPage" ContentTemplate="{DataTemplate local:MainPage}"/>
+    <ShellContent Title="Playlists zusammenführen" Route="MergePlaylistsPage" ContentTemplate="{DataTemplate local:MergePlaylistsPage}"/>
+    <ShellContent Title="Playlist sortieren" Route="SortPlaylistPage" ContentTemplate="{DataTemplate views:SortPlaylistPage}"/>
+    <ShellContent Title="Dubletten löschen" Route="DeleteDublicatesPage" ContentTemplate="{DataTemplate views:DeleteDublicatesPage}"/>
+    <ShellContent Title="Einstellungen" Route="SettingsPage" ContentTemplate="{DataTemplate local:SettingsPage}"/>
+
+
+
 
 
 </Shell>
