@@ -28,11 +28,5 @@ namespace Spotify_Manager
             await _viewModel.Initialize();
             await _viewModel.LoadData();
         }
-
-        private async void Test()
-        {
-            ISpotifyDataProvider spotifyDataProvider = new SpotifyApiNetDataProvider();
-            var playlists = await spotifyDataProvider.GetUsersPlaylistsAsync(Secrets.AppSecret.UserId);
-        }
     }
 }

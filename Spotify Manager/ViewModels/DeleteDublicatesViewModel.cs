@@ -1,12 +1,8 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using Spotify_Manager.DataStorage;
-using Spotify_Manager.Secrets;
 using Spotify_Manager.Services;
 using SpotifyAPI.Web;
-using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 
@@ -15,12 +11,13 @@ namespace Spotify_Manager.ViewModels
     public class DeleteDublicatesViewModel : BaseViewModel
     {
         private readonly ISpotifyDataStorage _spotifyDataStorage;
-        private ISpotifyDataService _spotifyDataService;
-        public ObservableCollection<SimplePlaylist> Playlists { get; private set; }
-
+        private readonly ISpotifyDataService _spotifyDataService;
         private SimplePlaylist _selectedPlaylist;
+
+        public ObservableCollection<SimplePlaylist> Playlists { get; private set; }
         public Command DeleteCommand { get; }
         public Command LoadPlaylistsCommand { get; }
+
         public DeleteDublicatesViewModel()
         {
             IsBusy = true;
@@ -47,7 +44,7 @@ namespace Spotify_Manager.ViewModels
                 var playlists = await _spotifyDataStorage.RefreshUsersPlaylists();
                 foreach (var playlist in playlists)
                 {
-                    if (playlist.Owner.Id == AppSecret.UserId)
+                    if (playlist.Owner.Id == await _spotifyDataService.GetCurrentUserId())
                         Playlists.Add(playlist);
                 }
             }
@@ -59,9 +56,15 @@ namespace Spotify_Manager.ViewModels
 
         private async Task ExecuteLoadPlaylistsCommand()
         {
-            IsBusy = true;
-            await LoadPlaylists();
-            IsBusy = false;
+            try
+            {
+                IsBusy = true;
+                await LoadPlaylists();
+            }
+            finally
+            {
+                IsBusy = false;
+            }
         }
 
         private async Task ExecuteDeleteCommand()

@@ -630,13 +630,6 @@ E:\Developing\Xamarin\Spotify Manager\Spotify Manager\Spotify Manager.Android\ob
 E:\Developing\Xamarin\Spotify Manager\Spotify Manager\Spotify Manager.Android\obj\Debug\120\stamp\_ResolveLibraryProjectImports.stamp
 E:\Developing\Xamarin\Spotify Manager\SpotifyManager\Spotify Manager.Android\bin\Debug\Spotify Manager.Android.dll
 E:\Developing\Xamarin\Spotify Manager\SpotifyManager\Spotify Manager.Android\bin\Debug\Spotify Manager.Android.pdb
-E:\Developing\Xamarin\Spotify Manager\SpotifyManager\Spotify Manager.Android\bin\Debug\com.companyname.spotify_manager.apk
-E:\Developing\Xamarin\Spotify Manager\SpotifyManager\Spotify Manager.Android\bin\Debug\com.companyname.spotify_manager.aab
-E:\Developing\Xamarin\Spotify Manager\SpotifyManager\Spotify Manager.Android\bin\Debug\com.companyname.spotify_manager-Signed.aab
-E:\Developing\Xamarin\Spotify Manager\SpotifyManager\Spotify Manager.Android\bin\Debug\com.companyname.spotify_manager-Signed.apk
-E:\Developing\Xamarin\Spotify Manager\SpotifyManager\Spotify Manager.Android\bin\Debug\com.companyname.spotify_manager-Signed.apk.idsig
-E:\Developing\Xamarin\Spotify Manager\SpotifyManager\Spotify Manager.Android\bin\Debug\Spotify Manager.dll
-E:\Developing\Xamarin\Spotify Manager\SpotifyManager\Spotify Manager.Android\bin\Debug\Spotify Manager.pdb
 E:\Developing\Xamarin\Spotify Manager\SpotifyManager\Spotify Manager.Android\obj\Debug\120\MonoAndroid,Version=v12.0.AssemblyAttributes.cs
 E:\Developing\Xamarin\Spotify Manager\SpotifyManager\Spotify Manager.Android\obj\Debug\120\build.props
 E:\Developing\Xamarin\Spotify Manager\SpotifyManager\Spotify Manager.Android\obj\Debug\120\adb.props
@@ -674,10 +667,7 @@ E:\Developing\Xamarin\Spotify Manager\SpotifyManager\Spotify Manager.Android\obj
 E:\Developing\Xamarin\Spotify Manager\SpotifyManager\Spotify Manager.Android\obj\Debug\120\Spotify Manager.Android.csproj.CopyComplete
 E:\Developing\Xamarin\Spotify Manager\SpotifyManager\Spotify Manager.Android\obj\Debug\120\Spotify Manager.Android.dll
 E:\Developing\Xamarin\Spotify Manager\SpotifyManager\Spotify Manager.Android\obj\Debug\120\Spotify Manager.Android.pdb
-E:\Developing\Xamarin\Spotify Manager\SpotifyManager\Spotify Manager.Android\obj\Debug\120\android\bin\com.companyname.spotify_manager.apk
 E:\Developing\Xamarin\Spotify Manager\SpotifyManager\Spotify Manager.Android\obj\Debug\120\android\bin\base.zip
-E:\Developing\Xamarin\Spotify Manager\SpotifyManager\Spotify Manager.Android\obj\Debug\120\android\bin\com.companyname.spotify_manager.aab
-E:\Developing\Xamarin\Spotify Manager\SpotifyManager\Spotify Manager.Android\obj\Debug\120\android\bin\com.companyname.spotify_manager.apks
 E:\Developing\Xamarin\Spotify Manager\SpotifyManager\Spotify Manager.Android\obj\Debug\120\res\values\styles.xml
 E:\Developing\Xamarin\Spotify Manager\SpotifyManager\Spotify Manager.Android\obj\Debug\120\res\values\colors.xml
 E:\Developing\Xamarin\Spotify Manager\SpotifyManager\Spotify Manager.Android\obj\Debug\120\res\mipmap-anydpi-v26\icon.xml
@@ -707,8 +697,6 @@ E:\Developing\Xamarin\Spotify Manager\SpotifyManager\Spotify Manager.Android\obj
 E:\Developing\Xamarin\Spotify Manager\SpotifyManager\Spotify Manager.Android\obj\Debug\120\android\assets\netstandard.dll
 E:\Developing\Xamarin\Spotify Manager\SpotifyManager\Spotify Manager.Android\obj\Debug\120\android\assets\Spotify Manager.Android.dll
 E:\Developing\Xamarin\Spotify Manager\SpotifyManager\Spotify Manager.Android\obj\Debug\120\android\assets\Spotify Manager.Android.pdb
-E:\Developing\Xamarin\Spotify Manager\SpotifyManager\Spotify Manager.Android\obj\Debug\120\android\assets\Spotify Manager.dll
-E:\Developing\Xamarin\Spotify Manager\SpotifyManager\Spotify Manager.Android\obj\Debug\120\android\assets\Spotify Manager.pdb
 E:\Developing\Xamarin\Spotify Manager\SpotifyManager\Spotify Manager.Android\obj\Debug\120\android\assets\System.ComponentModel.Composition.dll
 E:\Developing\Xamarin\Spotify Manager\SpotifyManager\Spotify Manager.Android\obj\Debug\120\android\assets\System.ComponentModel.Composition.pdb
 E:\Developing\Xamarin\Spotify Manager\SpotifyManager\Spotify Manager.Android\obj\Debug\120\android\assets\System.Core.dll
@@ -1229,7 +1217,6 @@ E:\Developing\Xamarin\Spotify Manager\SpotifyManager\Spotify Manager.Android\obj
 E:\Developing\Xamarin\Spotify Manager\SpotifyManager\Spotify Manager.Android\obj\Debug\120\android\src\mono\MonoPackageManager_Resources.java
 E:\Developing\Xamarin\Spotify Manager\SpotifyManager\Spotify Manager.Android\obj\Debug\120\android\src\xamarin\essentials\fileProvider.java
 E:\Developing\Xamarin\Spotify Manager\SpotifyManager\Spotify Manager.Android\obj\Debug\120\android\bin\packaged_resources
-E:\Developing\Xamarin\Spotify Manager\SpotifyManager\Spotify Manager.Android\obj\Debug\120\android\src\com\companyname\spotify_manager\R.java
 E:\Developing\Xamarin\Spotify Manager\SpotifyManager\Spotify Manager.Android\obj\Debug\120\android\compressed_assemblies.arm64-v8a.s
 E:\Developing\Xamarin\Spotify Manager\SpotifyManager\Spotify Manager.Android\obj\Debug\120\android\compressed_assemblies.armeabi-v7a.s
 E:\Developing\Xamarin\Spotify Manager\SpotifyManager\Spotify Manager.Android\obj\Debug\120\android\compressed_assemblies.x86.s
@@ -1318,3 +1305,17 @@ E:\Developing\Xamarin\Spotify Manager\SpotifyManager\Spotify Manager.Android\obj
 E:\Developing\Xamarin\Spotify Manager\SpotifyManager\Spotify Manager.Android\obj\Debug\120\android\assets\SpotifyAPI.Web.dll
 E:\Developing\Xamarin\Spotify Manager\SpotifyManager\Spotify Manager.Android\obj\Debug\120\android\assets\Swan.Lite.dll
 E:\Developing\Xamarin\Spotify Manager\SpotifyManager\Spotify Manager.Android\obj\Debug\120\android\assets\RestSharp.dll
+E:\Developing\Xamarin\Spotify Manager\SpotifyManager\Spotify Manager.Android\bin\Debug\Spotify Manager.dll
+E:\Developing\Xamarin\Spotify Manager\SpotifyManager\Spotify Manager.Android\bin\Debug\Spotify Manager.pdb
+E:\Developing\Xamarin\Spotify Manager\SpotifyManager\Spotify Manager.Android\obj\Debug\120\android\assets\Spotify Manager.dll
+E:\Developing\Xamarin\Spotify Manager\SpotifyManager\Spotify Manager.Android\obj\Debug\120\android\assets\Spotify Manager.pdb
+E:\Developing\Xamarin\Spotify Manager\SpotifyManager\Spotify Manager.Android\obj\Debug\120\android\src\spotifymanager\android\R.java
+E:\Developing\Xamarin\Spotify Manager\SpotifyManager\Spotify Manager.Android\obj\Debug\120\android\src\spotify_manager\android\R.java
+E:\Developing\Xamarin\Spotify Manager\SpotifyManager\Spotify Manager.Android\bin\Debug\SpotifyManager.Android.apk
+E:\Developing\Xamarin\Spotify Manager\SpotifyManager\Spotify Manager.Android\bin\Debug\SpotifyManager.Android.aab
+E:\Developing\Xamarin\Spotify Manager\SpotifyManager\Spotify Manager.Android\bin\Debug\SpotifyManager.Android-Signed.aab
+E:\Developing\Xamarin\Spotify Manager\SpotifyManager\Spotify Manager.Android\bin\Debug\SpotifyManager.Android-Signed.apk
+E:\Developing\Xamarin\Spotify Manager\SpotifyManager\Spotify Manager.Android\bin\Debug\SpotifyManager.Android-Signed.apk.idsig
+E:\Developing\Xamarin\Spotify Manager\SpotifyManager\Spotify Manager.Android\obj\Debug\120\android\bin\SpotifyManager.Android.apk
+E:\Developing\Xamarin\Spotify Manager\SpotifyManager\Spotify Manager.Android\obj\Debug\120\android\bin\SpotifyManager.Android.aab
+E:\Developing\Xamarin\Spotify Manager\SpotifyManager\Spotify Manager.Android\obj\Debug\120\android\bin\SpotifyManager.Android.apks

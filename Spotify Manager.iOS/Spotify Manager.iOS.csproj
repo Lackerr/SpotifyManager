@@ -144,7 +144,7 @@
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <ItemGroup>
     <ProjectReference Include="..\Spotify Manager\Spotify Manager.csproj">
-      <Project>{B4E62FBC-E61C-42F9-8AB9-23DCA5EF3E72}</Project>
+      <Project>{1557C522-6EB0-453D-B5FA-E6F4051E111A}</Project>
       <Name>Spotify Manager</Name>
     </ProjectReference>
   </ItemGroup>

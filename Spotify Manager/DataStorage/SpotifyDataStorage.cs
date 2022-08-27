@@ -23,7 +23,7 @@ namespace Spotify_Manager.DataStorage
 
         public async Task<IEnumerable<SimplePlaylist>> RefreshUsersPlaylists()
         {
-            UsersPlaylists = (ObservableCollection<SimplePlaylist>)await _spotifyDataService.GetPlaylistsAsync(AppSecret.UserId);
+            UsersPlaylists = (ObservableCollection<SimplePlaylist>)await _spotifyDataService.GetPlaylistsAsync(await _spotifyDataService.GetCurrentUserId());
             return UsersPlaylists;
         }
     }

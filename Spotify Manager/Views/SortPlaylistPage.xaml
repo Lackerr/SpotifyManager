@@ -17,7 +17,7 @@
                 <Picker TitleColor="#1DB954" TextColor="#1DB954" x:Name="PlaylistPicker" Title="Ziel-Playlist" ItemsSource="{Binding Playlists}" ItemDisplayBinding="{Binding Name}" SelectedItem="{Binding SelectedPlaylist}"/>
 
                 <Label Text="Sortieren nach:" TextColor="White" FontSize="Title"/>
-                <Picker TitleColor="#1DB954" TextColor="#1DB954" x:Name="SortingPicker" Title="Sortieren nach" ItemsSource="{Binding SortingTypes}" ItemDisplayBinding="{Binding Name}" SelectedItem="{Binding SelectedPlaylist}"/>
+                <Picker TitleColor="#1DB954" TextColor="#1DB954" x:Name="SortingPicker" Title="Sortieren nach" ItemsSource="{Binding SortingTypes}" ItemDisplayBinding="{Binding Name}" SelectedItem="{Binding SelectedSortingType}"/>
 
 
 

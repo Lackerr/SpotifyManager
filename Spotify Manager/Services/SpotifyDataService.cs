@@ -17,9 +17,10 @@ namespace Spotify_Manager.Services
             _provider = Startup.ServiceProvider.GetService<ISpotifyDataProvider>();
         }
 
-        public Task<bool> AddTracksAsync(IEnumerable<ITrack> tracks, string playlistId)
+        public async Task<bool> AddTracksAsync(IEnumerable<FullTrack> tracks, string playlistId)
         {
-            throw new NotImplementedException();
+            await _provider.AddTracksAsync(tracks, playlistId);
+            return true;
         }
 
         public async Task<IEnumerable<SimplePlaylist>> GetPlaylistsAsync(string userId)
@@ -33,9 +34,9 @@ namespace Spotify_Manager.Services
             throw new NotImplementedException();
         }
 
-        public Task<IEnumerable<ITrack>> GetTracksAsync(string playlistId)
+        public async Task<IEnumerable<FullTrack>> GetTracksAsync(string playlistId)
         {
-            throw new NotImplementedException();
+            return await _provider.GetTracksAsync(playlistId);
         }
 
         public async Task MergePlaylists(IEnumerable<SimplePlaylist> sourcePlaylists, SimplePlaylist targetPlaylist)
@@ -68,6 +69,23 @@ namespace Spotify_Manager.Services
         {
             var playlist = await _provider.PlaylistCreate(name);
             return playlist;
+        }
+
+        public async Task<string> GetCurrentUserId()
+        {
+            var user = await _provider.GetCurrentUser();
+            return user.Id;
+        }
+
+        public async Task<IEnumerable<TrackAudioFeatures>> GetAudioFeaturesAsync(IEnumerable<string> trackIds)
+        {
+            return await _provider.GetAudioFeaturesAsync(trackIds);
+        }
+
+        public async Task<string> ReorderTrackAsync(string playlistId, string trackId, int oldPos, int newPos, string snapshotId)
+        {
+            var snapshot = await _provider.ReorderTrackAsync(playlistId, trackId, oldPos, newPos, snapshotId);
+            return snapshot;
         }
     }
 }

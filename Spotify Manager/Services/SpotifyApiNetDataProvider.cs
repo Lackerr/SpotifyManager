@@ -12,12 +12,9 @@ namespace Spotify_Manager.Services
 {
     public class SpotifyApiNetDataProvider : ISpotifyDataProvider
     {
-
-        ITokenProvider _tokenProvider;
-        ISpotifyClientProvider _spotifyClientProvider;
+        readonly ISpotifyClientProvider _spotifyClientProvider;
         public SpotifyApiNetDataProvider()
         {
-            _tokenProvider = Startup.ServiceProvider.GetService<ITokenProvider>();
             _spotifyClientProvider = Startup.ServiceProvider.GetService<ISpotifyClientProvider>();
         }
         public async Task AddTracksAsync(IEnumerable<FullTrack> sourceTracks, string playlistId)
@@ -31,7 +28,6 @@ namespace Spotify_Manager.Services
 
             SpotifyClient client = await _spotifyClientProvider.CreateSpotifyClient();
             List<FullTrack> tracks = CheckForDublicates(sourceTracks, targetTracks) as List<FullTrack>;
-
 
 
             int counter = 0;
@@ -62,9 +58,9 @@ namespace Spotify_Manager.Services
                 } while (!isFinished);
 
             }
-            catch (Exception x)
+            catch
             {
-                var f = x.Message;
+
             }
         }
 
@@ -113,9 +109,9 @@ namespace Spotify_Manager.Services
                 }
                 while (pagingTracks.Next != null);
             }
-            catch (Exception x)
+            catch
             {
-                var f = x;
+
             }
 
             return tracks;
@@ -125,17 +121,13 @@ namespace Spotify_Manager.Services
         {
             int offset = 0;
 
-
-            Paging<SimplePlaylist> playlists = null;
             ObservableCollection<SimplePlaylist> usersPlaylists = new ObservableCollection<SimplePlaylist>();
-
-            
 
             SpotifyClient client = await _spotifyClientProvider.CreateSpotifyClient();
 
-
             try
             {
+                Paging<SimplePlaylist> playlists = null;
                 do
                 {
                     var request = new PlaylistCurrentUsersRequest
@@ -154,11 +146,10 @@ namespace Spotify_Manager.Services
                 }
                 while (playlists.Next != null);
             }
-            catch (Exception x)
+            catch
             {
-                var f = x;
-            }
 
+            }
             return usersPlaylists;
         }
 
@@ -182,18 +173,23 @@ namespace Spotify_Manager.Services
                     Uri = uri,
                     Id = uri.Substring(uri.LastIndexOf(":") + 1)
                 });
-                //var request = new SearchRequest(SearchRequest.Types.Track, uri);
-                //var h = await client.Search.Item(request);
             }
-            await PlaylistRemoveTracks(playlistId, dublicates);
-            await AddTracksAsync(doubleTracks, playlistId);
+            try
+            {
+                await PlaylistRemoveTracks(playlistId, dublicates);
+                await AddTracksAsync(doubleTracks, playlistId);
+            }
+            catch
+            {
 
+            }
         }
 
         public async Task PlaylistRemoveTracks(string playlistId, IEnumerable<string> trackUris)
         {
             int counter = 0;
             bool isFinished = false;
+
             SpotifyClient client = await _spotifyClientProvider.CreateSpotifyClient();
 
             do
@@ -230,14 +226,95 @@ namespace Spotify_Manager.Services
 
         public async Task<FullPlaylist> PlaylistCreate(string name)
         {
+            FullPlaylist fullPlaylist = null;
             SpotifyClient client = await _spotifyClientProvider.CreateSpotifyClient();
 
             var request = new PlaylistCreateRequest(name)
             {
                 Description = "Playlist created with Spotify-Manager"
             };
-            var fullPlaylist = await client.Playlists.Create(AppSecret.UserId, request);
+            try
+            {
+                var user = await client.UserProfile.Current();
+                fullPlaylist = await client.Playlists.Create(user.Id, request);
+            }
+            catch (Exception x)
+            {
+                var f = x.Message;
+            }
             return fullPlaylist;
+        }
+
+        public async Task<PrivateUser> GetCurrentUser()
+        {
+            SpotifyClient client = await _spotifyClientProvider.CreateSpotifyClient();
+            try
+            {
+                return await client.UserProfile.Current();
+            }
+            catch
+            {
+                return null;
+            }
+        }
+
+        public async Task<IEnumerable<TrackAudioFeatures>> GetAudioFeaturesAsync(IEnumerable<string> trackIds)
+        {
+            int counter = 0;
+            bool isFinished = false;
+
+            SpotifyClient client = await _spotifyClientProvider.CreateSpotifyClient();
+
+            ObservableCollection<TrackAudioFeatures> audioFeatures = new ObservableCollection<TrackAudioFeatures>();
+
+            do
+            {
+                var ids = new List<string>();
+                int maxItems = counter + 100;
+
+                if (maxItems > trackIds.Count() - 1)
+                {
+                    maxItems = trackIds.Count();
+                    isFinished = true;
+                }
+
+                for (int i = counter; i < maxItems; i++)
+                {
+                    ids.Add(trackIds.ElementAt(i));
+                }
+                try
+                {
+                    var request = new TracksAudioFeaturesRequest(ids);
+                    var response = await client.Tracks.GetSeveralAudioFeatures(request);
+
+                    foreach (var item in response.AudioFeatures)
+                    {
+                        audioFeatures.Add(item);
+                    }
+                }
+                catch (Exception x)
+                {
+                    var f = x.Message;
+                }
+                counter += 100;
+
+            } while (!isFinished);
+            return audioFeatures;
+        }
+
+        public async Task PlaylistClearAsync(string playlistId)
+        {
+            SpotifyClient client = await _spotifyClientProvider.CreateSpotifyClient();
+
+            PlaylistReplaceItemsRequest request = new PlaylistReplaceItemsRequest(new List<string>());
+            try
+            {
+                await client.Playlists.ReplaceItems(playlistId, request);
+            }
+            catch (Exception x)
+            {
+                var f = x.Message;
+            }
         }
     }
 }

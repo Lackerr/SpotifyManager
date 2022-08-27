@@ -2,9 +2,10 @@
 using Spotify_Manager.DataStorage;
 using Spotify_Manager.Models;
 using Spotify_Manager.Secrets;
+using Spotify_Manager.Services;
 using SpotifyAPI.Web;
 using System.Collections.ObjectModel;
- using System.Threading.Tasks;
+using System.Threading.Tasks;
 using Xamarin.Forms;
 
 namespace Spotify_Manager.ViewModels
@@ -12,10 +13,15 @@ namespace Spotify_Manager.ViewModels
     public class SortPlaylistViewModel : BaseViewModel
     {
         private readonly ISpotifyDataStorage _spotifyDataStorage;
+        private readonly ISpotifyDataService _spotifyDataService;
+
         private ObservableCollection<SimplePlaylist> _playlists;
-        private SimplePlaylist _selectedPlaylist;
         private ObservableCollection<SortingType> _sortingTypes;
-        private Sorting _sorting;
+
+        private SimplePlaylist _selectedPlaylist;
+        private SortingType _selectedSortingType;
+
+        private readonly Sorting _sorting;
 
         public Command SortCommand { get; }
         public Command LoadPlaylistsCommand { get; }
@@ -25,10 +31,14 @@ namespace Spotify_Manager.ViewModels
             IsBusy = true;
 
             Title = "Playlist sortieren";
+
             _spotifyDataStorage = Startup.ServiceProvider.GetService<ISpotifyDataStorage>();
             _playlists = _spotifyDataStorage.UsersPlaylists;
+
             _sorting = new Sorting();
-            SortingTypes  = _sorting.GetSortingTypes() as ObservableCollection<SortingType>;
+            SortingTypes = _sorting.GetSortingTypes();
+
+            _spotifyDataService = Startup.ServiceProvider.GetService<ISpotifyDataService>();
 
             SortCommand = new Command(async () => await ExecuteSortCommand());
             LoadPlaylistsCommand = new Command(async () => await ExecuteLoadPlaylistCommand());
@@ -41,16 +51,15 @@ namespace Spotify_Manager.ViewModels
             IsBusy = true;
             SelectedPlaylist = null;
 
-
-
-
             Playlists.Clear();
             try
             {
                 var playlists = await _spotifyDataStorage.RefreshUsersPlaylists();
+                var userId = await _spotifyDataService.GetCurrentUserId();
+
                 foreach (var playlist in playlists)
                 {
-                    if (playlist.Owner.Id == AppSecret.UserId)
+                    if (playlist.Owner.Id == userId)
                         Playlists.Add(playlist);
                 }
             }
@@ -58,12 +67,19 @@ namespace Spotify_Manager.ViewModels
             {
                 IsBusy = false;
             }
-            //var list = mainList.Where(x => x.detailList.All(y => y.property));
         }
 
         private async Task ExecuteSortCommand()
         {
-
+            try
+            {
+                IsBusy = true;
+                await _sorting.PlaylistSort(_selectedSortingType, _selectedPlaylist);
+            }
+            finally
+            {
+                IsBusy = false;
+            }
         }
 
         public ObservableCollection<SimplePlaylist> Playlists
@@ -87,6 +103,19 @@ namespace Spotify_Manager.ViewModels
                 if (value != null)
                 {
                     SetProperty(ref _selectedPlaylist, value);
+                    OnPropertyChanged();
+                }
+            }
+        }
+
+        public SortingType SelectedSortingType
+        {
+            get => _selectedSortingType;
+            set
+            {
+                if (value != null)
+                {
+                    SetProperty(ref _selectedSortingType, value);
                     OnPropertyChanged();
                 }
             }

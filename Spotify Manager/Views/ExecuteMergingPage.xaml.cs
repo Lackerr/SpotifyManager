@@ -13,7 +13,7 @@ namespace Spotify_Manager.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class ExecuteMergingPage : ContentPage
     {
-        private ExecuteMergingViewModel _viewModel;
+        private readonly ExecuteMergingViewModel _viewModel;
         public ExecuteMergingPage()
         {
             InitializeComponent();

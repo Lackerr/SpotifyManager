@@ -2,10 +2,8 @@
 using Spotify_Manager.DataStorage;
 using Spotify_Manager.Services;
 using SpotifyAPI.Web;
-using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 
@@ -13,12 +11,11 @@ namespace Spotify_Manager.ViewModels
 {
     public class ExecuteMergingViewModel : BaseViewModel
     {
-        private readonly ISpotifyDataStorage _spotifyDataStorage;
-        private ISpotifyDataService _spotifyDataService;
-        private IUserSelection _userSelection;
+        private readonly ISpotifyDataService _spotifyDataService;
+        private readonly IUserSelection _userSelection;
 
-        private ObservableCollection<SimplePlaylist> _sourcePlaylists;
-        private SimplePlaylist _targetPlaylist;
+        private readonly ObservableCollection<SimplePlaylist> _sourcePlaylists;
+        private readonly SimplePlaylist _targetPlaylist;
 
         private bool _waiting = true;
         private bool _finished = false;
@@ -30,11 +27,10 @@ namespace Spotify_Manager.ViewModels
             Title = "Playlists zusammenführen";
 
             _spotifyDataService = Startup.ServiceProvider.GetService<ISpotifyDataService>();
-            _spotifyDataStorage = Startup.ServiceProvider.GetService<ISpotifyDataStorage>();
             _userSelection = Startup.ServiceProvider.GetService<IUserSelection>();
 
-            _sourcePlaylists = _userSelection.SourcePlaylists as ObservableCollection<SimplePlaylist>;
-            _targetPlaylist = _userSelection.DestinationPlaylist as SimplePlaylist;
+            _sourcePlaylists = (ObservableCollection<SimplePlaylist>)_userSelection.SourcePlaylists;
+            _targetPlaylist = _userSelection.DestinationPlaylist;
 
             StartMergingCommand = new Command(async () => await ExecuteStartMergingCommand());
             FinishedCommand = new Command(async () => await ExecuteFinishedCommand());

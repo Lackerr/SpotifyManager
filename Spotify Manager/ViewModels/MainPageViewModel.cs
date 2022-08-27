@@ -10,7 +10,7 @@ namespace Spotify_Manager.ViewModels
 {
     public class MainPageViewModel : BaseViewModel
     {
-        ISpotifyDataStorage _spotifyDataStorage;
+        readonly ISpotifyDataStorage _spotifyDataStorage;
         public MainPageViewModel()
         {
             IsBusy = true;

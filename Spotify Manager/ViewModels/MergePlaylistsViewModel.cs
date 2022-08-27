@@ -11,11 +11,10 @@ namespace Spotify_Manager.ViewModels
     internal class MergePlaylistsViewModel : BaseViewModel
     {
         private readonly ISpotifyDataStorage _spotifyDataStorage;
-        public ObservableCollection<SimplePlaylist> Playlists { get; }
-
         private ObservableCollection<object> _selectedPlaylists;
         private bool _isSelected = false;
 
+        public ObservableCollection<SimplePlaylist> Playlists { get; }
 
         public Command LoadPlaylistsCommand { get; }
         public Command SelectionChangedCommand { get; }
@@ -86,7 +85,7 @@ namespace Spotify_Manager.ViewModels
         private void ExecuteContinue()
         {
             IUserSelection userSelection = Startup.ServiceProvider.GetService<IUserSelection>();
-            ObservableCollection<SimplePlaylist> source = new ObservableCollection<SimplePlaylist>(/*userSelection.SourcePlaylists*/);
+            var source = new ObservableCollection<SimplePlaylist>();
 
             foreach (var item in SelectedPlaylists)
             {
@@ -105,7 +104,6 @@ namespace Spotify_Manager.ViewModels
                 SetProperty(ref _selectedPlaylists, value);
                 OnPropertyChanged();
             }
-
         }
 
         public bool IsSelected
@@ -123,7 +121,6 @@ namespace Spotify_Manager.ViewModels
         {
             _selectedPlaylists.Clear();
             await base.Initialize();
-
         }
     }
 }

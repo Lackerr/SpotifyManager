@@ -1950,7 +1950,7 @@ application_config:
 
 	.type	.L.autostr.6, @object
 .L.autostr.6:
-	.asciz	"c9687bf9-7d93-4fef-8ddf-ed59eb113088"
+	.asciz	"23ff2a8d-b4bd-472d-974a-13c8aaa2517c"
 	.size	.L.autostr.6, 37
 
 	.type	.L.autostr.7, @object
@@ -2125,8 +2125,8 @@ application_config:
 
 	.type	.L.autostr.41, @object
 .L.autostr.41:
-	.asciz	"com.companyname.spotify_manager"
-	.size	.L.autostr.41, 32
+	.asciz	"SpotifyManager.Android"
+	.size	.L.autostr.41, 23
 
 
 	.ident	"Xamarin.Android remotes/origin/d17-2 @ 4e061b739747f624ccb03c98940d8900548a98ad"
