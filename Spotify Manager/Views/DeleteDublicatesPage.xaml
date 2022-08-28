@@ -13,10 +13,10 @@
             <Grid>
                 <StackLayout Padding="10" VerticalOptions="FillAndExpand">
                     <Label Text="Playlist:" TextColor="White" FontSize="Title"/>
-                    <Picker TitleColor="#1DB954" TextColor="#1DB954" x:Name="PlaylistPicker" Title="Playlist" ItemsSource="{Binding Playlists}" ItemDisplayBinding="{Binding Name}" SelectedItem="{Binding SelectedPlaylist}"/>
+                    <Picker TitleColor="#1DB954" TextColor="#1DB954" x:Name="PlaylistPicker" Title="Playlist" ItemsSource="{Binding Playlists}" ItemDisplayBinding="{Binding Name}" SelectedItem="{Binding SelectedPlaylist}" SelectedIndexChanged="PlaylistPicker_SelectedIndexChanged"/>
                     <StackLayout Padding="10" VerticalOptions="EndAndExpand">
                         <StackLayout HeightRequest="1" BackgroundColor="#1DB954" />
-                        <Button  Text="Dubletten entfernen" TextColor="#191414" BackgroundColor="#1DB954" CornerRadius="20"  HorizontalOptions="FillAndExpand" Command="{Binding DeleteCommand}"></Button>
+                        <Button  Text="Dubletten entfernen" TextColor="#191414" BackgroundColor="#1DB954" CornerRadius="20"  HorizontalOptions="FillAndExpand" Command="{Binding DeleteCommand}" IsEnabled="{Binding IsValid}"></Button>
                     </StackLayout>
                 </StackLayout>
                 <StackLayout BackgroundColor="#191414" Opacity="0.7" IsVisible="{Binding IsBusy}">

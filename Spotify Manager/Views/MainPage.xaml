@@ -4,12 +4,17 @@
              x:Class="Spotify_Manager.MainPage"
              xmlns:viewModels="clr-namespace:Spotify_Manager.ViewModels"
              BackgroundColor="#191414"
-             x:DataType="viewModels:MainPageViewModel">
+             x:DataType="viewModels:MainPageViewModel"
+             Title="Spotify Manager">
     <ContentPage.Content>
         <Grid >
-            <StackLayout BackgroundColor="#191414">
-                <Grid RowDefinitions="100,100,100" ColumnDefinitions="1*,1*" Padding="10">
-                    <Button Grid.Row="0" Grid.Column="0" Text="Playlists" CornerRadius="10" BackgroundColor="Gray"  TextColor="White"/>
+            <StackLayout BackgroundColor="#191414" Padding="10" >
+                <Label Text="Playlist-Optionen" TextColor="White" FontSize="Large" Margin="10" HorizontalOptions="Center"></Label>
+                <Button Text="Playlists Zusammenführen" CornerRadius="50" BackgroundColor="#1DB954"  TextColor="#191414" Margin="5" Command="{Binding OpenMergePlaylistCommand}"/>
+                <Button Text="Playlists Sortieren" CornerRadius="50" BackgroundColor="#1DB954"  TextColor="#191414" Margin="5" Command="{Binding OpenSortPlaylistCommand}"/>
+                <Button Text="Doubletten löschen" CornerRadius="50" BackgroundColor="#1DB954"  TextColor="#191414" Margin="5" Command="{Binding OpenDeleteDubletsCommand}"/>
+                <Grid RowDefinitions="100,100,100" ColumnDefinitions="1*,1*">
+
                 </Grid>
             </StackLayout>
             <StackLayout BackgroundColor="Black" Opacity="0.7" IsVisible="{Binding IsBusy}">

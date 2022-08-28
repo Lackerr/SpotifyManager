@@ -18,9 +18,9 @@ namespace Spotify_Manager.ViewModels
         private ObservableCollection<SimplePlaylist> _playlists;
         private ObservableCollection<SortingType> _sortingTypes;
 
+        private bool _isValid = false;
         private SimplePlaylist _selectedPlaylist;
         private SortingType _selectedSortingType;
-
         private readonly Sorting _sorting;
 
         public Command SortCommand { get; }
@@ -131,9 +131,21 @@ namespace Spotify_Manager.ViewModels
             }
         }
 
+        public bool IsValid
+        {
+            get => _isValid;
+            set
+            {
+                if(value != _isValid)
+                {
+                    SetProperty(ref _isValid, value);
+                    OnPropertyChanged();
+                }
+            }
+        }
+
         public override async Task Initialize()
         {
-
             await base.Initialize();
             await ExecuteLoadPlaylistCommand();
         }

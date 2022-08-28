@@ -38,14 +38,6 @@ namespace Spotify_Manager
 
         static void ConfigureServices(HostBuilderContext ctx, IServiceCollection services)
         {
-            if (ctx.HostingEnvironment.IsDevelopment())
-            {
-                //services.AddSingleton<IDataService, DummyDataService>();
-            }
-            else
-            {
-                //services.AddSingleton<IDataService, DataDataService>();
-            }
             services.AddTransient<AppShell>();
             services.AddSingleton<ISpotifyDataStorage, SpotifyDataStorage>();
             services.AddSingleton<ISpotifyDataProvider, SpotifyApiNetDataProvider>();
@@ -56,7 +48,6 @@ namespace Spotify_Manager
             services.AddTransient<Playlist>();
             services.AddTransient<TrackInfromation>();
             services.AddTransient<Track>();
-
         }
     }
 }

@@ -84,8 +84,8 @@ namespace Spotify_Manager.Services
 
         public async Task<string> ReorderTrackAsync(string playlistId, string trackId, int oldPos, int newPos, string snapshotId)
         {
-            var snapshot = await _provider.ReorderTrackAsync(playlistId, trackId, oldPos, newPos, snapshotId);
-            return snapshot;
+            await _provider.PlaylistClearAsync(playlistId);
+            return null;
         }
     }
 }

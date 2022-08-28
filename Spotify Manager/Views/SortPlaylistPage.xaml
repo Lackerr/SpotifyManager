@@ -14,16 +14,16 @@
             <StackLayout Padding="10" VerticalOptions="FillAndExpand">
 
                 <Label Text="Playlist:" TextColor="White" FontSize="Title"/>
-                <Picker TitleColor="#1DB954" TextColor="#1DB954" x:Name="PlaylistPicker" Title="Ziel-Playlist" ItemsSource="{Binding Playlists}" ItemDisplayBinding="{Binding Name}" SelectedItem="{Binding SelectedPlaylist}"/>
+                <Picker TitleColor="#1DB954" TextColor="#1DB954" x:Name="PlaylistPicker" Title="Ziel-Playlist" ItemsSource="{Binding Playlists}" ItemDisplayBinding="{Binding Name}" SelectedItem="{Binding SelectedPlaylist}" SelectedIndexChanged="PlaylistPicker_SelectedIndexChanged"/>
 
                 <Label Text="Sortieren nach:" TextColor="White" FontSize="Title"/>
-                <Picker TitleColor="#1DB954" TextColor="#1DB954" x:Name="SortingPicker" Title="Sortieren nach" ItemsSource="{Binding SortingTypes}" ItemDisplayBinding="{Binding Name}" SelectedItem="{Binding SelectedSortingType}"/>
+                <Picker TitleColor="#1DB954" TextColor="#1DB954" x:Name="SortingPicker" Title="Sortieren nach" ItemsSource="{Binding SortingTypes}" ItemDisplayBinding="{Binding Name}" SelectedItem="{Binding SelectedSortingType}" SelectedIndexChanged="SortingPicker_SelectedIndexChanged"/>
 
 
 
                 <StackLayout Padding="10" Orientation="Vertical" VerticalOptions="EndAndExpand">
                     <StackLayout HeightRequest="1" BackgroundColor="#1DB954" />
-                    <Button  Text="Weiter" TextColor="#191414" BackgroundColor="#1DB954" CornerRadius="20"  HorizontalOptions="FillAndExpand" Command="{Binding SortCommand}" ></Button>
+                    <Button  Text="Weiter" TextColor="#191414" BackgroundColor="#1DB954" CornerRadius="20"  HorizontalOptions="FillAndExpand" Command="{Binding SortCommand}" IsEnabled="{Binding IsValid}"></Button>
                 </StackLayout>
             </StackLayout>
             <StackLayout BackgroundColor="#191414" Opacity="0.7" IsVisible="{Binding IsBusy}">

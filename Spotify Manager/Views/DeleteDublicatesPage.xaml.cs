@@ -25,5 +25,18 @@ namespace Spotify_Manager.Views
             base.OnAppearing();
             await _viewModel.Initialize();
         }
+
+        private void PlaylistPicker_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Validate();
+        }
+        private void Validate()
+        {
+            _viewModel.IsValid = false;
+            if(PlaylistPicker.SelectedIndex != -1)
+            {
+                _viewModel.IsValid = true;
+            }
+        }
     }
 }

@@ -5,7 +5,7 @@
              xmlns:local="clr-namespace:Spotify_Manager"
              xmlns:views="clr-namespace:Spotify_Manager.Views"
              Title="SpotifyManager"
-       >
+             BackgroundColor="#191414">
 
     <!--<Shell.Resources>
         <Style Class="FlyoutItemLabelStyle" TargetType="Label" >
@@ -29,7 +29,6 @@
     <ShellContent Title="Playlists zusammenführen" Route="MergePlaylistsPage" ContentTemplate="{DataTemplate local:MergePlaylistsPage}"/>
     <ShellContent Title="Playlist sortieren" Route="SortPlaylistPage" ContentTemplate="{DataTemplate views:SortPlaylistPage}"/>
     <ShellContent Title="Dubletten löschen" Route="DeleteDublicatesPage" ContentTemplate="{DataTemplate views:DeleteDublicatesPage}"/>
-    <ShellContent Title="Einstellungen" Route="SettingsPage" ContentTemplate="{DataTemplate local:SettingsPage}"/>
 
 
 

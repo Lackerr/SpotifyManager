@@ -18,9 +18,11 @@ namespace Spotify_Manager
         {
             InitializeComponent();
             Routing.RegisterRoute(nameof(SelectTargetPlaylistPage), typeof(SelectTargetPlaylistPage));
+            Routing.RegisterRoute(nameof(DeleteDublicatesPage), typeof(DeleteDublicatesPage));
+            Routing.RegisterRoute(nameof(MergePlaylistsPage), typeof(MergePlaylistsPage));
             Routing.RegisterRoute(nameof(ExecuteMergingPage), typeof(ExecuteMergingPage));
-            Routing.RegisterRoute(nameof(MainPage),typeof(MainPage));
             Routing.RegisterRoute(nameof(SortPlaylistPage), typeof(SortPlaylistPage));
+            Routing.RegisterRoute(nameof(MainPage),typeof(MainPage));
 
                                          
         }
