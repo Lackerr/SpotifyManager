@@ -1,15 +1,12 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.FileProviders;
 using Microsoft.Extensions.Hosting;
+using Spotify_Manager.DataStorage;
+using Spotify_Manager.Models;
+using Spotify_Manager.Services;
 using System;
 using Xamarin.Essentials;
-using System.Collections.Generic;
-using System.Text;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.FileProviders;
-using Spotify_Manager.Services;
-using Spotify_Manager.Models;
-using Spotify_Manager.DataStorage;
-using Spotify_Manager.Models.SpotifyStructure;
 
 namespace Spotify_Manager
 {
@@ -45,9 +42,6 @@ namespace Spotify_Manager
             services.AddSingleton<IUserSelection, UserSelection>();
             services.AddSingleton<ISpotifyClientProvider, SpotifyClientProviderOAuth>();
             services.AddTransient<Token>();
-            services.AddTransient<Playlist>();
-            services.AddTransient<TrackInfromation>();
-            services.AddTransient<Track>();
         }
     }
 }

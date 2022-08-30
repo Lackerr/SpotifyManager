@@ -1,5 +1,4 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
-using Spotify_Manager.Models.SpotifyStructure;
 using SpotifyAPI.Web;
 using System;
 using System.Collections.Generic;
@@ -29,10 +28,7 @@ namespace Spotify_Manager.Services
             return playlists;
         }
 
-        public Task<ITrackInfromation> GetTrackInformationAsync(string trackId)
-        {
-            throw new NotImplementedException();
-        }
+
 
         public async Task<IEnumerable<FullTrack>> GetTracksAsync(string playlistId)
         {
