@@ -1,6 +1,5 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using SpotifyAPI.Web;
-using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Threading.Tasks;
@@ -9,8 +8,7 @@ namespace Spotify_Manager.Services
 {
     public class SpotifyDataService : ISpotifyDataService
     {
-
-        ISpotifyDataProvider _provider;
+        readonly ISpotifyDataProvider _provider;
         public SpotifyDataService()
         {
             _provider = Startup.ServiceProvider.GetService<ISpotifyDataProvider>();
@@ -58,18 +56,18 @@ namespace Spotify_Manager.Services
             {
                 tracks = await _provider.GetTracksAsync(playlistId);
             }
-            await _provider.PlaylistDeleteDublicates(playlistId, tracks);
+            await _provider.PlaylistDeleteDublicatesAsync(playlistId, tracks);
         }
 
         public async Task<FullPlaylist> PlaylistCreate(string name)
         {
-            var playlist = await _provider.PlaylistCreate(name);
+            var playlist = await _provider.PlaylistCreateAsync(name);
             return playlist;
         }
 
         public async Task<string> GetCurrentUserId()
         {
-            var user = await _provider.GetCurrentUser();
+            var user = await _provider.GetCurrentUserAsync();
             return user.Id;
         }
 

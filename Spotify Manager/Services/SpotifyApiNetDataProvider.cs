@@ -148,7 +148,7 @@ namespace Spotify_Manager.Services
             return usersPlaylists;
         }
 
-        public async Task PlaylistDeleteDublicates(string playlistId, IEnumerable<FullTrack> tracks)
+        public async Task PlaylistDeleteDublicatesAsync(string playlistId, IEnumerable<FullTrack> tracks)
         {
             List<FullTrack> trackList = new List<FullTrack>(tracks);
             List<string> uris = trackList.Select(o => o.Uri).ToList();
@@ -171,7 +171,7 @@ namespace Spotify_Manager.Services
             }
             try
             {
-                await PlaylistRemoveTracks(playlistId, dublicates);
+                await PlaylistRemoveTracksAsync(playlistId, dublicates);
                 await AddTracksAsync(doubleTracks, playlistId);
             }
             catch
@@ -180,7 +180,7 @@ namespace Spotify_Manager.Services
             }
         }
 
-        public async Task PlaylistRemoveTracks(string playlistId, IEnumerable<string> trackUris)
+        public async Task PlaylistRemoveTracksAsync(string playlistId, IEnumerable<string> trackUris)
         {
             int counter = 0;
             bool isFinished = false;
@@ -219,7 +219,7 @@ namespace Spotify_Manager.Services
             } while (!isFinished);
         }
 
-        public async Task<FullPlaylist> PlaylistCreate(string name)
+        public async Task<FullPlaylist> PlaylistCreateAsync(string name)
         {
             FullPlaylist fullPlaylist = null;
             SpotifyClient client = await _spotifyClientProvider.CreateSpotifyClient();
@@ -240,7 +240,7 @@ namespace Spotify_Manager.Services
             return fullPlaylist;
         }
 
-        public async Task<PrivateUser> GetCurrentUser()
+        public async Task<PrivateUser> GetCurrentUserAsync()
         {
             SpotifyClient client = await _spotifyClientProvider.CreateSpotifyClient();
             try
