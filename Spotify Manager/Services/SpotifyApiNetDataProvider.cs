@@ -10,7 +10,8 @@ namespace Spotify_Manager.Services
 {
     public class SpotifyApiNetDataProvider : ISpotifyDataProvider
     {
-        readonly ISpotifyClientProvider _spotifyClientProvider;
+        private readonly ISpotifyClientProvider _spotifyClientProvider;
+        private const int requestLimit = 100;
         public SpotifyApiNetDataProvider()
         {
             _spotifyClientProvider = Startup.ServiceProvider.GetService<ISpotifyClientProvider>();
@@ -36,7 +37,7 @@ namespace Spotify_Manager.Services
                 {
                     List<string> uris = new List<string>();
 
-                    int maxTracks = counter + 100;
+                    int maxTracks = counter + requestLimit;
                     if (maxTracks > tracks.Count - 1)
                     {
                         maxTracks = tracks.Count;
@@ -50,7 +51,7 @@ namespace Spotify_Manager.Services
                     }
                     var request = new PlaylistAddItemsRequest(uris);
                     await client.Playlists.AddItems(playlistId, request);
-                    counter += 100;
+                    counter += requestLimit;
 
 
                 } while (!isFinished);
@@ -100,7 +101,7 @@ namespace Spotify_Manager.Services
                         if (!item.IsLocal)
                             tracks.Add(item.Track as FullTrack);
                     }
-                    offset += 100;
+                    offset += requestLimit;
                 }
                 while (pagingTracks.Next != null);
             }
@@ -190,7 +191,7 @@ namespace Spotify_Manager.Services
             do
             {
                 var itemsToRemove = new List<PlaylistRemoveItemsRequest.Item>();
-                int maxItems = counter + 100;
+                int maxItems = counter + requestLimit;
 
                 if (maxItems > trackUris.Count() - 1)
                 {
@@ -214,7 +215,7 @@ namespace Spotify_Manager.Services
                 {
                     var f = x.Message;
                 }
-                counter += 100;
+                counter += requestLimit;
 
             } while (!isFinished);
         }
@@ -265,7 +266,7 @@ namespace Spotify_Manager.Services
             do
             {
                 var ids = new List<string>();
-                int maxItems = counter + 100;
+                int maxItems = counter + requestLimit;
 
                 if (maxItems > trackIds.Count() - 1)
                 {
@@ -291,7 +292,7 @@ namespace Spotify_Manager.Services
                 {
                     var f = x.Message;
                 }
-                counter += 100;
+                counter += requestLimit;
 
             } while (!isFinished);
             return audioFeatures;
