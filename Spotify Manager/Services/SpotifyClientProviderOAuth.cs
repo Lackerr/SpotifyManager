@@ -1,22 +1,21 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Threading.Tasks;
-using SpotifyAPI.Web.Auth;
-using SpotifyAPI.Web;
-using Spotify_Manager.Models;
-using System.IO;
+﻿using Spotify_Manager.Models;
 using Spotify_Manager.Secrets;
+using SpotifyAPI.Web;
+using SpotifyAPI.Web.Auth;
+using System;
+using System.Collections.Generic;
+using System.IO;
 using System.Text.Json;
+using System.Threading.Tasks;
 using Xamarin.Essentials;
 
 namespace Spotify_Manager.Services
 {
     public class SpotifyClientProviderOAuth : ISpotifyClientProvider
     {
-        private static PKCETokenModel _pKCETokenModel = new PKCETokenModel();
-        private static string _tokenConfigDir = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData));
-        private static string _tokenConfigFile = Path.Combine(_tokenConfigDir, "auth.json");
+        private static readonly PKCETokenModel _pKCETokenModel = new PKCETokenModel();
+        private static readonly string _tokenConfigDir = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData));
+        private static readonly string _tokenConfigFile = Path.Combine(_tokenConfigDir, "auth.json");
 
 
 
